@@ -5,12 +5,12 @@
 - name: Download zookeeper version.
   get_url:
     url: "{{zookeeper_url}}"
-    dest: "{{zookeeper_tarball_dir}}/zookeeper-{{zookeeper_version}}.tar.gz"
+    dest: "{{zookeeper_tarball_dir}}/zookeeper-{{zookeeper_version}}.tgz"
   tags: bootstrap
 
 - name: Unpack tarball
   unarchive:
-    src: "{{zookeeper_tarball_dir}}/zookeeper-{{zookeeper_version}}.tar.gz"
+    src: "{{zookeeper_tarball_dir}}/zookeeper-{{zookeeper_version}}.tgz"
     dest: /opt
     copy: no
   tags: bootstrap
