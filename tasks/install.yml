@@ -1,0 +1,16 @@
+---
+
+- name: ZOOKEEPER | Apt install required system packages
+  apt:
+    pkg: "{{item}}"
+    state: installed
+  with_items:
+    - zookeeper
+    - zookeeperd
+
+- name: ZOOKEEPER | Create systemd service
+  template:
+    src: zookeeper.service.j2
+    dest: /lib/systemd/system/zookeeper.service
+  notify:
+    - Restart zookeeper

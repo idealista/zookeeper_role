@@ -5,8 +5,8 @@ Description=ZooKeeper
 
 [Service]
 Type=simple
-User=zookeeper
-Group=zookeeper
+User={{ zookeeper_user }}
+Group={{zookeeper_group }}
 ExecStart={{zookeeper_dir}}/bin/zkServer.sh start-foreground
 
 TimeoutSec=300

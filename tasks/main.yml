@@ -1,9 +1,7 @@
 ---
 
-- include: Debian.yml
-  when: ansible_os_family == 'Debian' and zookeeper_debian_apt_install
+- include: install.yml
 
-- include: Debian-tarball.yml
-  when: ansible_os_family == 'Debian' and not zookeeper_debian_apt_install
+- include: config.yml
 
-- include: common-config.yml
+- include: service.yml
