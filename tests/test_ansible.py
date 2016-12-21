@@ -11,8 +11,7 @@ def AnsibleVars(Ansible):
     return Ansible("include_vars", "tests/group_vars/group01.yml")["ansible_facts"]
 
 
-def test_zookeeper_version(File, AnsibleVars):
-    version = AnsibleVars["zookeeper_version"]
-    assert File("/opt/zookeeper-" + version).exists
-    assert File("/opt/zookeeper").is_symlink
-    assert File("/opt/zookeeper").linked_to == "/opt/zookeeper-" + version
+def test_zookeeper_service(File, Service):
+    assert File("/lib/systemd/system/zookeeper.service").exists
+    assert not Service("zookeeper").is_enabled
+    assert Service("zookeeper").is_running
