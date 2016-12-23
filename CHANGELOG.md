@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.3] - 2016-12-23
+### Fixed
+- *#1 Enable service by default*  @jmonterrubio
+
 ## [1.0.2]
 ### Fixed
 - *Update docs and refactor tasks*  @jmonterrubio
