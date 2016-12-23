@@ -1,7 +1,7 @@
 ---
 
 # start on boot
-zookeeper_service_enabled: yes
+zookeeper_service_enabled: 'yes'
 # current state: started, stopped
 zookeeper_service_state: started
 
