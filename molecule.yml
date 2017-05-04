@@ -31,6 +31,10 @@ molecule:
       - verify
       - destroy
 
+dependency:
+  name: galaxy
+  requirements_file: tests/requirements.yml
+
 # ansible related configuration
 ansible:
   playbook: tests/playbook.yml
