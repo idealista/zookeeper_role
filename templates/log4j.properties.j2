@@ -1,9 +1,9 @@
+# {{ansible_managed}}
 # Define some default values that can be overridden by system properties
-zookeeper.root.logger=INFO, CONSOLE, ROLLINGFILE
-zookeeper.console.threshold=INFO
-zookeeper.log.dir={{log_dir}}
+zookeeper.root.logger=INFO, ROLLINGFILE
+zookeeper.log.dir={{zookeeper_log_dir}}
 zookeeper.log.file=zookeeper.log
-zookeeper.log.threshold=DEBUG
+zookeeper.log.threshold=INFO
 zookeeper.tracelog.dir=.
 zookeeper.tracelog.file=zookeeper_trace.log
 
@@ -21,14 +21,6 @@ log4j.rootLogger=${zookeeper.root.logger}
 
 # Example with rolling log file and tracing
 #log4j.rootLogger=TRACE, CONSOLE, ROLLINGFILE, TRACEFILE
-
-#
-# Log INFO level and above messages to the console
-#
-log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
-log4j.appender.CONSOLE.Threshold=${zookeeper.console.threshold}
-log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
-log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L] - %m%n
 
 #
 # Add ROLLINGFILE to rootLogger to get log file output
