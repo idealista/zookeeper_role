@@ -39,7 +39,8 @@ zookeeper_java_opts: "-Dcom.sun.management.jmxremote.authenticate=false \
                       -Dcom.sun.management.jmxremote.ssl=false \
                       -Dcom.sun.management.jmxremote.local.only=$JMXLOCALONLY \
                       -Dcom.sun.management.jmxremote.port={{ zookeeper_jmx_port }} \
-                      -Djava.rmi.server.hostname={{ ansible_nodename }}"
+                      -Djava.rmi.server.hostname={{ ansible_nodename }} \
+                      -Djava.net.preferIPv4Stack=true"
 
 # Rolling file appender setttings
 zookeeper_rolling_log_file_max_size: 10MB

@@ -19,14 +19,14 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - *[#1](https://github.com/idealista/zookeeper-role/issues/1) Enable service by default*  @jmonterrubio
 
-## [1.0.2]
+## [1.0.2](https://github.com/idealista/zookeeper-role/tree/1.0.2) (2016-12-21)
 ### Fixed
 - *Update docs and refactor tasks*  @jmonterrubio
 
-## [1.0.1]
+## [1.0.1](https://github.com/idealista/zookeeper-role/tree/1.0.1) (2016-11-18)
 ### Fixed
 - *Fix problem with ansible unarchive*  @jmonterrubio
 
-## [1.0.0]
+## [1.0.0](https://github.com/idealista/zookeeper-role/tree/1.0.0) (2016-10-26)
 ### Added
 - *First commit* @jmonterrubio

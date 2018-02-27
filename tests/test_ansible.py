@@ -16,6 +16,6 @@ def test_zookeeper_service(File, Service, Socket, AnsibleDefaults):
     assert Service("zookeeper").is_enabled
     assert Service("zookeeper").is_running
     port = AnsibleDefaults["client_port"]
-    assert Socket("tcp://:::" + str(port)).is_listening
+    assert Socket("tcp://0.0.0.0:" + str(port)).is_listening
     jmx_port = AnsibleDefaults["zookeeper_jmx_port"]
-    assert Socket("tcp://:::" + str(jmx_port)).is_listening
+    assert Socket("tcp://0.0.0.0:" + str(jmx_port)).is_listening
