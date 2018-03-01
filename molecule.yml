@@ -97,8 +97,6 @@ docker:
         - zookeeper_group
       image: idealista/java-debian-ansible
       image_version: latest
-      environment:
-        TMPDIR: /root/
       # All these parameters are needed for Docker testing with systemd
       privileged: True
       cap_add:
@@ -113,8 +111,6 @@ docker:
         - zookeeper_group
       image: idealista/java-debian-ansible
       image_version: latest
-      environment:
-        TMPDIR: /root/
       # All these parameters are needed for Docker testing with systemd
       privileged: True
       cap_add:
@@ -129,8 +125,6 @@ docker:
         - zookeeper_group
       image: idealista/java-debian-ansible
       image_version: latest
-      environment:
-        TMPDIR: /root/
       # All these parameters are needed for Docker testing with systemd
       privileged: True
       cap_add:
