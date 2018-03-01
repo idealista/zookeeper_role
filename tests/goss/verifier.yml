@@ -26,6 +26,14 @@
       with_items:
         - zookeeper.yml
 
+    - name: Netstat
+      shell: "netstat -tulpan"
+      register: result
+
+    - debug:
+        var: result
+        verbosity: 4
+
     - name: Goss tests
       command: "goss -g /tmp/{{ item }} validate -format tap"
       with_items:

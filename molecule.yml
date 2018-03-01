@@ -39,6 +39,7 @@ dependency:
 # ansible related configuration
 ansible:
   playbook: tests/playbook.yml
+  verbose: True
 
 verifier:
   name: goss
