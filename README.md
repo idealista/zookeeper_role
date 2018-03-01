@@ -22,7 +22,7 @@ These instructions will get you a copy of the role for your ansible playbook. On
 
 ### Prerequisities
 
-Ansible 2.2.0.0 version installed.
+Ansible 2.4.0.0 version installed.
 Inventory destination should be a Debian environment.
 
 Notice that automatically java is installed as dependency.
@@ -77,7 +77,7 @@ molecule test
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.2.0.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.4.0.0-green.svg)
 
 ## Versioning
 

@@ -7,7 +7,7 @@ group: deprecated-2017Q4
 services:
   - docker
 install:
-  - pip install ansible==2.2.0.0
+  - pip install ansible==2.4.0.0
   - pip install molecule==1.25.0
   - pip install ansible-lint==3.4.20
   - pip install docker
