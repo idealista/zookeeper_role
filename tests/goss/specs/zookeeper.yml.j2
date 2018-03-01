@@ -1,0 +1,24 @@
+group:
+  {{ zookeeper_group }}:
+    exists: true
+
+user:
+  {{ zookeeper_user }}:
+    exists: true
+    groups:
+      - {{ zookeeper_group }}
+
+service:
+  zookeeper:
+    enabled: true
+    running: true
+
+port:
+  tcp:{{ zookeeper_client_port }}:
+    listening: true
+    ip:
+    - 0.0.0.0
+  tcp:{{ zookeeper_jmx_port }}:
+    listening: true
+    ip:
+    - 0.0.0.0

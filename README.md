@@ -1,6 +1,6 @@
 ![Logo](logo.gif)
 
-# Apache ZooKeeper Ansible role
+# Apache ZooKeeper Ansible role [![Build Status](https://travis-ci.org/idealista/zookeeper-role.png)](https://travis-ci.org/idealista/zookeeper-role)
 
 This ansible role installs an Apache ZooKeeper service in a debian environment.
 
@@ -34,8 +34,7 @@ For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant
 Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
-- src: http://github.com/idealista/zookeeper-role.git
-  scm: git
+- src: idealista.zookeeper-role
   version: 1.0.0
   name: zookeeper
 ```

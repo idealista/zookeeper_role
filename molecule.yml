@@ -15,11 +15,20 @@ molecule:
     - .vagrant
     - .molecule
 
-  # directory to look for testinfra tests
-  testinfra_dir: tests
-
   # directory containing group_vars to use with ansible
   group_vars: ../tests/group_vars
+
+  test:
+    sequence:
+      - destroy
+      - create
+      - converge
+      - idempotence
+      - verify
+
+  # directory to look for goss tests
+  goss_dir: tests/goss
+  goss_playbook: verifier.yml
 
 dependency:
   name: galaxy
@@ -28,6 +37,9 @@ dependency:
 # ansible related configuration
 ansible:
   playbook: tests/playbook.yml
+
+verifier:
+  name: goss
 
 # configuration options for the internal call to vagrant
 vagrant:
@@ -42,6 +54,8 @@ vagrant:
   platforms:
     - name: Debian
       box: debian/jessie64
+    - name: Debian
+      box: debian/stretch64
 
   providers:
     - name: virtualbox
@@ -75,10 +89,10 @@ vagrant:
 
 docker:
   containers:
-    - name: zookeeper1.cont
+    - name: zookeeper1
       hostname: zookeeper1
       ansible_groups:
-        - group01
+        - zookeeper_group
       image: idealista/java-debian-ansible
       image_version: latest
       # All these parameters are needed for Docker testing with systemd
@@ -89,10 +103,10 @@ docker:
         - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
       command: '/lib/systemd/systemd'
 
-    - name: zookeeper2.cont
+    - name: zookeeper2
       hostname: zookeeper2
       ansible_groups:
-        - group01
+        - zookeeper_group
       image: idealista/java-debian-ansible
       image_version: latest
       # All these parameters are needed for Docker testing with systemd
@@ -103,10 +117,10 @@ docker:
         - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
       command: '/lib/systemd/systemd'
 
-    - name: zookeeper3.cont
+    - name: zookeeper3
       hostname: zookeeper3
       ansible_groups:
-        - group01
+        - zookeeper_group
       image: idealista/java-debian-ansible
       image_version: latest
       # All these parameters are needed for Docker testing with systemd
