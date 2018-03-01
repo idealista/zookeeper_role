@@ -13,6 +13,13 @@
     - ../group_vars/zookeeper_group.yml
 
   tasks:
+    - name: Ensure test tools are installed
+      apt:
+        package: "{{ item }}"
+      with_items:
+        - net-tools
+        - curl
+
     - name: Download and install Goss
       get_url:
         url: "{{ goss_url }}"
