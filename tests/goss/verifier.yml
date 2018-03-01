@@ -28,10 +28,18 @@
 
     - name: Netstat
       shell: "netstat -tulpan"
-      register: result
+      register: resultn
 
     - debug:
-        var: result
+        var: resultn
+        verbosity: 4
+
+    - name: Netstat
+      shell: "/sbin/ifconfig -a"
+      register: resulti
+
+    - debug:
+        var: resulti
         verbosity: 4
 
     - name: Goss tests
