@@ -28,11 +28,12 @@
   notify:
     - Restart zookeeper
 
-- name: ZOOKEEPER | Configure JAVA_OPTS
-  lineinfile:
-    name: "{{ zookeeper_dir }}/bin/zkEnv.sh"
-    regexp: "^ZOOMAIN="
-    line: "ZOOMAIN=\"{{ (zookeeper_jmx_enabled) | ternary(zookeeper_java_opts,'') }} {{ zookeeper_main_file }}\""
+- name: ZOOKEEPER | Configure zkEnv.sh
+  template:
+    src: zkEnv.sh.j2
+    dest: "{{ zookeeper_dir }}/bin/zkEnv.sh"
+    owner: "{{ zookeeper_user }}"
+    group: "{{ zookeeper_group }}"
   notify:
     - Restart zookeeper
 

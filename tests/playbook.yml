@@ -1,5 +1,11 @@
 ---
 
 - hosts: all
+  pre_tasks:
+  - name: installing net-tools
+    apt:
+      name: net-tools
+      state: present
+
   roles:
     - role: zookeeper-role
