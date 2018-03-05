@@ -1,7 +1,16 @@
 ---
 
-- include: install.yml
+- name: ZOOKEEPER | Install
+  import_tasks: install.yml
+  tags:
+    - install
 
-- include: config.yml
+- name: ZOOKEEPER | Config
+  import_tasks: config.yml
+  tags:
+    - config
 
-- include: service.yml
+- name: ZOOKEEPER | Service
+  import_tasks: service.yml
+  tags:
+    - service
