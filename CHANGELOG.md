@@ -5,9 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## [1.1.1](https://github.com/idealista/zookeeper-role/tree/1.1.1) (2018-03-05)
 [Full Changelog](https://github.com/idealista/zookeeper-role/compare/1.1.0...1.1.1)
-- *[#12](https://github.com/idealista/zookeeper-role/issues/12) Expose service using tcp4 by default*  @dortegau
 
 ### Fixed
+- *[#12](https://github.com/idealista/zookeeper-role/issues/12) Expose service using tcp4 by default and ensuring that remote JMX access is enabled*  @dortegau
 - *Remove upstart script to easy enable systemd service* @jmonterrubio
 
 ## [1.1.0](https://github.com/idealista/zookeeper-role/tree/1.1.0) (2017-05-04)
