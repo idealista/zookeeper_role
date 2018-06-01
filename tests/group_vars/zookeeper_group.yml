@@ -2,7 +2,7 @@
 ## JAVA
 java_implementation: openjdk
 
-zookeeper_version: 3.4.9
+zookeeper_version: 3.4.12
 
 zookeeper_hosts:
   - host: zookeeper1
