@@ -3,8 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [1.2](https://github.com/idealista/zookeeper-role/tree/1.2) (2018-06-04)
-[Full Changelog](https://github.com/idealista/zookeeper-role/compare/1.1.1...1.2)
+## [1.2.0](https://github.com/idealista/zookeeper-role/tree/1.2.0) (2018-06-04)
+[Full Changelog](https://github.com/idealista/zookeeper-role/compare/1.1.1...1.2.0)
 
 ### Changed
 - *[#19](https://github.com/idealista/zookeeper-role/issues/19) Upgrade ZooKeeper version to 3.4.12*  @eskabetxe
