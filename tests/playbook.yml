@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: zookeeper
   pre_tasks:
     - name: installing net-tools
       apt:

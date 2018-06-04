@@ -26,7 +26,7 @@ log4j.rootLogger=${zookeeper.root.logger}
 # Add ROLLINGFILE to rootLogger to get log file output
 #    Log DEBUG level and above messages to a log file
 log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
-log4j.appender.ROLLINGFILE.Threshold=${zookeeper.log.threshold}
+log4j.appender.ROLLINGFILE.threshold=${zookeeper.log.threshold}
 log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/${zookeeper.log.file}
 
 # Max log file size of 10MB
@@ -42,9 +42,19 @@ log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} [myid:%X{myid}] 
 # Add TRACEFILE to rootLogger to get log file output
 #    Log DEBUG level and above messages to a log file
 log4j.appender.TRACEFILE=org.apache.log4j.FileAppender
-log4j.appender.TRACEFILE.Threshold=TRACE
+log4j.appender.TRACEFILE.threshold=TRACE
 log4j.appender.TRACEFILE.File=${zookeeper.tracelog.dir}/${zookeeper.tracelog.file}
 
 log4j.appender.TRACEFILE.layout=org.apache.log4j.PatternLayout
 ### Notice we are including log4j's NDC here (%x)
 log4j.appender.TRACEFILE.layout.ConversionPattern=%d{ISO8601} [myid:%X{myid}] - %-5p [%t:%C{1}@%L][%x] - %m%n
+
+
+
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.target=System.out
+log4j.appender.CONSOLE.immediateFlush=true
+log4j.appender.CONSOLE.encoding=UTF-8
+#log4j.appender.CONSOLE.threshold=warn
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.conversionPattern=%d [%t] %-5p %c - %m%n

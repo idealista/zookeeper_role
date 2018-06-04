@@ -3,7 +3,7 @@
 - name: ZOOKEEPER | Overwrite myid file.
   template:
     src: myid.j2
-    dest: "{{zookeeper_conf_dir}}/myid"
+    dest: "{{zookeeper_data_dir}}/myid"
     force: "{{ zookeeper_force_myid }}"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
@@ -36,4 +36,3 @@
     group: "{{ zookeeper_group }}"
   notify:
     - Restart zookeeper
-

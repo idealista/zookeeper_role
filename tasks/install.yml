@@ -64,5 +64,3 @@
   file:
     path: /etc/init.d/zookeeper
     state: absent
-
-
