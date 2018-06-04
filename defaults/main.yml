@@ -45,7 +45,7 @@ zookeeper_max_rolling_log_file_count: 10
 # List of dict (i.e. {zookeeper_hosts:[{host:,id:},{host:,id:},...]})
 zookeeper_hosts:
   - host: "{{inventory_hostname}}" # the machine running
-    id: 8
+    id: 1
 
 # Dict of ENV settings to be written into the (optional) conf/zookeeper-env.sh
 zookeeper_env: {}
