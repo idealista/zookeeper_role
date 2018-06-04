@@ -3,7 +3,7 @@
 - name: ZOOKEEPER | Overwrite myid file.
   template:
     src: myid.j2
-    dest: "{{zookeeper_conf_dir}}/conf/myid"
+    dest: "{{zookeeper_conf_dir}}/myid"
     force: "{{ zookeeper_force_myid }}"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
@@ -13,7 +13,7 @@
 - name: ZOOKEEPER | Overwrite default config file
   template:
     src: zoo.cfg.j2
-    dest: "{{zookeeper_conf_dir}}/conf/zoo.cfg"
+    dest: "{{zookeeper_conf_dir}}/zoo.cfg"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
   notify:
@@ -22,16 +22,7 @@
 - name: ZOOKEEPER | Configure zookeeper-env.sh
   template:
     src: zookeeper-env.sh.j2
-    dest: "{{ zookeeper_conf_dir }}/conf/zookeeper-env.sh"
-    owner: "{{ zookeeper_user }}"
-    group: "{{ zookeeper_group }}"
-  notify:
-    - Restart zookeeper
-
-- name: ZOOKEEPER | Configure zkEnv.sh
-  template:
-    src: zkEnv.sh.j2
-    dest: "{{ zookeeper_dir }}/bin/zkEnv.sh"
+    dest: "{{ zookeeper_conf_dir }}/zookeeper-env.sh"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
   notify:
@@ -40,8 +31,9 @@
 - name: ZOOKEEPER | Update the log4j
   template:
     src: log4j.properties.j2
-    dest: "{{ zookeeper_conf_dir }}/conf/log4j.properties"
+    dest: "{{ zookeeper_conf_dir }}/log4j.properties"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
   notify:
     - Restart zookeeper
+

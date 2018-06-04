@@ -69,21 +69,21 @@ vagrant:
   instances:
     - name: zookeeper1
       ansible_groups:
-        - group01
+        - zookeeper
       interfaces:
         - network_name: private_network
           type: dhcp
           auto_config: true
     - name: zookeeper2
       ansible_groups:
-        - group01
+        - zookeeper
       interfaces:
         - network_name: private_network
           type: dhcp
           auto_config: true
     - name: zookeeper3
       ansible_groups:
-        - group01
+        - zookeeper
       interfaces:
         - network_name: private_network
           type: dhcp
@@ -94,7 +94,7 @@ docker:
     - name: zookeeper1
       hostname: zookeeper1
       ansible_groups:
-        - zookeeper_group
+        - zookeeper
       image: idealista/java-debian-ansible
       image_version: latest
       # All these parameters are needed for Docker testing with systemd
@@ -108,7 +108,7 @@ docker:
     - name: zookeeper2
       hostname: zookeeper2
       ansible_groups:
-        - zookeeper_group
+        - zookeeper
       image: idealista/java-debian-ansible
       image_version: latest
       # All these parameters are needed for Docker testing with systemd
@@ -122,7 +122,7 @@ docker:
     - name: zookeeper3
       hostname: zookeeper3
       ansible_groups:
-        - zookeeper_group
+        - zookeeper
       image: idealista/java-debian-ansible
       image_version: latest
       # All these parameters are needed for Docker testing with systemd

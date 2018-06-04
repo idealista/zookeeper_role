@@ -2,10 +2,14 @@
 
 - hosts: all
   pre_tasks:
-  - name: installing net-tools
-    apt:
-      name: net-tools
-      state: present
+    - name: installing net-tools
+      apt:
+        pkg: "{{ item }}"
+        state: present
+      with_items:
+        - net-tools
 
+- hosts: zookeeper
   roles:
-    - role: zookeeper-role
+    - java
+    - zookeeper-role
