@@ -93,6 +93,9 @@ vagrant:
           auto_config: true
 
 docker:
+  network:
+    - name: docker-cluster-network
+      driver: bridge
   containers:
     - name: zookeeper1
       hostname: zookeeper1
@@ -100,6 +103,7 @@ docker:
         - zookeeper
       image: idealista/java-debian-ansible
       image_version: latest
+      network_mode: docker-cluster-network
       # All these parameters are needed for Docker testing with systemd
       privileged: True
       cap_add:
@@ -114,6 +118,7 @@ docker:
         - zookeeper
       image: idealista/java-debian-ansible
       image_version: latest
+      network_mode: docker-cluster-network
       # All these parameters are needed for Docker testing with systemd
       privileged: True
       cap_add:
@@ -128,6 +133,7 @@ docker:
         - zookeeper
       image: idealista/java-debian-ansible
       image_version: latest
+      network_mode: docker-cluster-network
       # All these parameters are needed for Docker testing with systemd
       privileged: True
       cap_add:

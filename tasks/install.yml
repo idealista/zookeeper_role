@@ -1,6 +1,6 @@
 ---
 
-- name: ZOOKEEPER | Installing dependencies
+- name: ZOOKEEPER | Removing dependencies
   apt:
     pkg: "zookeeper"
     state: absent
