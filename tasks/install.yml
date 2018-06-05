@@ -37,7 +37,7 @@
     - "{{ zookeeper_log_dir }}"
 
 - name: ZOOKEEPER | Check zookeeper version
-  command: echo status | nc localhost 2181
+  shell: echo status | nc localhost 2181
   register: zookeeper_check
   changed_when: false
   ignore_errors: true
@@ -50,8 +50,7 @@
     dest: "{{ zookeeper_install_path }}"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
-  when: zookeeper_force_reinstall or zookeeper_check|failed or zookeeper_version not in zookeeper_check.stdout
-
+  when: "zookeeper_force_reinstall or zookeeper_check|failed or zookeeper_version not in zookeeper_check.stdout"
 
 - name: ZOOKEEPER | Create systemd service
   template:

@@ -8,6 +8,14 @@
         state: present
       with_items:
         - net-tools
+    - name: remove localhost from hosts
+      lineinfile:
+        path: /etc/hosts
+        regexp: '127\.0\.1\.1.*{{inventory_hostname}}.*{{inventory_hostname}}'
+        line: '#127.0.1.1 {{inventory_hostname}} {{inventory_hostname}}'
+        owner: root
+        group: root
+        mode: 0644
 
 - hosts: zookeeper
   roles:

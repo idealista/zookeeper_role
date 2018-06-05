@@ -72,21 +72,24 @@ vagrant:
         - zookeeper
       interfaces:
         - network_name: private_network
-          type: dhcp
+          type: static
+          ip: 172.28.128.61
           auto_config: true
     - name: zookeeper2
       ansible_groups:
         - zookeeper
       interfaces:
         - network_name: private_network
-          type: dhcp
+          type: static
+          ip: 172.28.128.62
           auto_config: true
     - name: zookeeper3
       ansible_groups:
         - zookeeper
       interfaces:
         - network_name: private_network
-          type: dhcp
+          type: static
+          ip: 172.28.128.63
           auto_config: true
 
 docker:
