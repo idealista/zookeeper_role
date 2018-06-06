@@ -10,7 +10,7 @@
   vars_files:
     - ../../defaults/main.yml
     - ../../vars/main.yml
-    - ../group_vars/zookeeper_group.yml
+    - ../group_vars/zookeeper.yml
 
   tasks:
     - name: Download and install Goss

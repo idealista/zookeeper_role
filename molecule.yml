@@ -69,34 +69,41 @@ vagrant:
   instances:
     - name: zookeeper1
       ansible_groups:
-        - group01
+        - zookeeper
       interfaces:
         - network_name: private_network
-          type: dhcp
+          type: static
+          ip: 172.28.128.61
           auto_config: true
     - name: zookeeper2
       ansible_groups:
-        - group01
+        - zookeeper
       interfaces:
         - network_name: private_network
-          type: dhcp
+          type: static
+          ip: 172.28.128.62
           auto_config: true
     - name: zookeeper3
       ansible_groups:
-        - group01
+        - zookeeper
       interfaces:
         - network_name: private_network
-          type: dhcp
+          type: static
+          ip: 172.28.128.63
           auto_config: true
 
 docker:
+  network:
+    - name: docker-cluster-network
+      driver: bridge
   containers:
     - name: zookeeper1
       hostname: zookeeper1
       ansible_groups:
-        - zookeeper_group
+        - zookeeper
       image: idealista/java-debian-ansible
       image_version: latest
+      network_mode: docker-cluster-network
       # All these parameters are needed for Docker testing with systemd
       privileged: True
       cap_add:
@@ -108,9 +115,10 @@ docker:
     - name: zookeeper2
       hostname: zookeeper2
       ansible_groups:
-        - zookeeper_group
+        - zookeeper
       image: idealista/java-debian-ansible
       image_version: latest
+      network_mode: docker-cluster-network
       # All these parameters are needed for Docker testing with systemd
       privileged: True
       cap_add:
@@ -122,9 +130,10 @@ docker:
     - name: zookeeper3
       hostname: zookeeper3
       ansible_groups:
-        - zookeeper_group
+        - zookeeper
       image: idealista/java-debian-ansible
       image_version: latest
+      network_mode: docker-cluster-network
       # All these parameters are needed for Docker testing with systemd
       privileged: True
       cap_add:
