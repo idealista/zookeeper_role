@@ -22,7 +22,9 @@ These instructions will get you a copy of the role for your ansible playbook. On
 
 ### Prerequisities
 
-Ansible 2.4.0.0 version installed.
+Ansible 2.4.2.0 version installed.
+Molecule 1.25 version installed.
+Ansible-lint 3.4.15 version installed.
 Inventory destination should be a Debian environment.
 
 Notice that automatically java is installed as dependency.

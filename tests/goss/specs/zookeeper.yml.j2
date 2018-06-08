@@ -13,8 +13,16 @@ service:
     enabled: true
     running: true
 
-port:
-  tcp:{{ zookeeper_client_port }}:
-    listening: true
-  tcp:{{ zookeeper_jmx_port }}:
-    listening: true
+command:
+  bash /opt/zookeeper/bin/zkServer.sh status:
+    # required attributes
+    exit-status: 0
+    timeout: 10000
+    stdout:
+    - "/Mode: (follower|leader)/"
+
+#port:
+#  tcp:{{ zookeeper_client_port }}:
+#    listening: true
+#  tcp:{{ zookeeper_jmx_port }}:
+#    listening: true
