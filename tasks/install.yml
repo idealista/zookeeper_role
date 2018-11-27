@@ -46,7 +46,7 @@
   unarchive:
     extra_opts: ['--strip-components=1']
     src: "{{ zookeeper_url }}"
-    remote_src: yes
+    remote_src: true
     dest: "{{ zookeeper_install_path }}"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"

@@ -1,6 +1,4 @@
 ---
-## JAVA
-java_implementation: openjdk
 
 zookeeper_version: 3.4.12
 

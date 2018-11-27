@@ -1,0 +1,66 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+  options:
+    config-file: .yamllint
+
+platforms:
+  - name: zookeeper1
+    hostname: zookeeper1
+    ansible_groups:
+      - zookeeper
+    image: idealista/java-debian-ansible
+    image_version: latest
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+    volume_mounts:
+      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    networks:
+      - name: zookeeper-network
+    command: '/lib/systemd/systemd'
+
+  - name: zookeeper2
+    hostname: zookeeper2
+    ansible_groups:
+      - zookeeper
+    image: idealista/java-debian-ansible
+    image_version: latest
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+    volume_mounts:
+      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    networks:
+      - name: zookeeper-network
+    command: '/lib/systemd/systemd'
+
+  - name: zookeeper3
+    hostname: zookeeper3
+    ansible_groups:
+      - zookeeper
+    image: idealista/java-debian-ansible
+    image_version: latest
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+    volume_mounts:
+      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    networks:
+      - name: zookeeper-network
+    command: '/lib/systemd/systemd'
+
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+scenario:
+  name: default
+verifier:
+  name: goss
+  lint:
+    name: yamllint

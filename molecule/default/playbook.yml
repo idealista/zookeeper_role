@@ -1,6 +1,7 @@
 ---
 
-- hosts: zookeeper
+- name: Converge
+  hosts: zookeeper
   pre_tasks:
     - name: installing required libs
       apt:
@@ -17,8 +18,5 @@
         owner: root
         group: root
         mode: 0644
-
-- hosts: zookeeper
   roles:
-    - java
     - zookeeper-role
