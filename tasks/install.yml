@@ -40,7 +40,7 @@
   shell: echo status | nc localhost 2181
   register: zookeeper_check
   changed_when: false
-  ignore_errors: true
+  failed_when: "'This ZooKeeper instance is not currently serving requests' in zookeeper_check.stdout"
 
 - name: ZOOKEEPER | Untar zookeeper
   unarchive:
@@ -50,7 +50,7 @@
     dest: "{{ zookeeper_install_path }}"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
-  when: "zookeeper_force_reinstall or zookeeper_check|failed or zookeeper_version not in zookeeper_check.stdout"
+    creates: "zookeeper_force_reinstall or zookeeper_check is failed or zookeeper_version not in zookeeper_check.stdout"
 
 - name: ZOOKEEPER | Create systemd service
   template:

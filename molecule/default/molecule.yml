@@ -10,48 +10,54 @@ lint:
 
 platforms:
   - name: zookeeper1
-    hostname: zookeeper1
-    ansible_groups:
+    groups:
       - zookeeper
     image: idealista/java-debian-ansible
     image_version: latest
     privileged: true
-    cap_add:
+    capabilities:
       - SYS_ADMIN
-    volume_mounts:
+    volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
     networks:
       - name: zookeeper-network
+        links:
+          - zookeeper2:zookeeper2
+          - zookeeper3:zookeeper3
     command: '/lib/systemd/systemd'
 
   - name: zookeeper2
-    hostname: zookeeper2
-    ansible_groups:
+    groups:
       - zookeeper
     image: idealista/java-debian-ansible
     image_version: latest
     privileged: true
-    cap_add:
+    capabilities:
       - SYS_ADMIN
-    volume_mounts:
+    volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
     networks:
       - name: zookeeper-network
+        links:
+          - zookeeper1:zookeeper1
+          - zookeeper3:zookeeper3
     command: '/lib/systemd/systemd'
 
   - name: zookeeper3
-    hostname: zookeeper3
-    ansible_groups:
+    groups:
       - zookeeper
     image: idealista/java-debian-ansible
     image_version: latest
     privileged: true
-    cap_add:
+    capabilities:
       - SYS_ADMIN
-    volume_mounts:
+    volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
     networks:
       - name: zookeeper-network
+        links:
+          - zookeeper1:zookeeper1
+          - zookeeper2:zookeeper2
     command: '/lib/systemd/systemd'
 
 provisioner:

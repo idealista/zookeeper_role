@@ -10,13 +10,5 @@
       with_items:
         - net-tools
         - netcat
-    - name: remove localhost from hosts
-      lineinfile:
-        path: /etc/hosts
-        regexp: '127\.0\.1\.1.*{{inventory_hostname}}.*{{inventory_hostname}}'
-        state: absent
-        owner: root
-        group: root
-        mode: 0644
   roles:
     - zookeeper-role
