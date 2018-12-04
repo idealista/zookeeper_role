@@ -74,8 +74,10 @@ zookeeper_hosts:
 
 ## Testing
 
-```
-molecule test
+
+```sh
+$ pipenv install -r test-requirements.txt --python 2.7
+$ pipenv run molecule test
 ```
 
 ## Built With
