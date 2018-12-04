@@ -8,9 +8,35 @@ user:
     groups:
       - {{ zookeeper_group }}
 
+file:
+  {{ zookeeper_data_dir }}/myid:
+    exists: true
+    owner: {{ zookeeper_user }}
+    group: {{ zookeeper_group }}
+    filetype: file
+  {{ zookeeper_conf_dir }}/zoo.cfg:
+    exists: true
+    owner: {{ zookeeper_user }}
+    group: {{ zookeeper_group }}
+    filetype: file
+  {{ zookeeper_conf_dir }}/zookeeper-env.sh:
+    exists: true
+    owner: {{ zookeeper_user }}
+    group: {{ zookeeper_group }}
+    filetype: file
+  {{ zookeeper_conf_dir }}/log4j.properties:
+    exists: true
+    owner: {{ zookeeper_user }}
+    group: {{ zookeeper_group }}
+    filetype: file
+
 service:
   zookeeper:
     enabled: true
+    running: true
+
+process:
+  java:
     running: true
 
 command:
@@ -21,8 +47,6 @@ command:
     stdout:
     - "/Mode: (follower|leader)/"
 
-#port:
-#  tcp:{{ zookeeper_client_port }}:
-#    listening: true
-#  tcp:{{ zookeeper_jmx_port }}:
-#    listening: true
+port:
+  tcp:{{ zookeeper_client_port }}:
+    listening: true
