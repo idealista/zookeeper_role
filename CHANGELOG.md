@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- *[#22](https://github.com/idealista/zookeeper-role/issues/22) Upgrading molecule version to 2.19.0 and Ansible to 2.5.3.0*  @dortegau
 
 ## [1.2.0](https://github.com/idealista/zookeeper-role/tree/1.2.0) (2018-06-04)
 [Full Changelog](https://github.com/idealista/zookeeper-role/compare/1.1.1...1.2.0)

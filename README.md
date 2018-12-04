@@ -22,14 +22,14 @@ These instructions will get you a copy of the role for your ansible playbook. On
 
 ### Prerequisities
 
-Ansible 2.4.2.0 version installed.
-Molecule 1.25 version installed.
-Ansible-lint 3.4.15 version installed.
+Ansible 2.5.3.0 version installed.
+Molecule 2.19.0 version installed.
+
 Inventory destination should be a Debian environment.
 
 Notice that automatically java is installed as dependency.
 
-For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant](https://www.vagrantup.com/) as driver (with [hostmanager](https://github.com/devopsgroup-io/vagrant-hostmanager) plugin) and [VirtualBox](https://www.virtualbox.org/) as provider.
+For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver
 
 ### Installing
 
@@ -37,7 +37,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.zookeeper-role
-  version: 1.0.0
+  version: 1.3.0
   name: zookeeper
 ```
 
@@ -53,7 +53,8 @@ Use in a playbook:
 ---
 - hosts: someserver
   roles:
-    - { role: zookeeper
+    - {
+				role: zookeeper
       }
 ```
 
@@ -79,7 +80,7 @@ molecule test
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.4.0.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.5.3.0-green.svg)
 
 ## Versioning
 
