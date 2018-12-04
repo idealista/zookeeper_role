@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- *[#23](https://github.com/idealista/zookeeper-role/issues/23) Using ZooKeeper 3.4.13 as default version*  @dortegau
 - *[#22](https://github.com/idealista/zookeeper-role/issues/22) Upgrading molecule version to 2.19.0 and Ansible to 2.5.3.0*  @dortegau
 
 ## [1.2.0](https://github.com/idealista/zookeeper-role/tree/1.2.0) (2018-06-04)
