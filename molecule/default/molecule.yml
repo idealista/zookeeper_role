@@ -13,7 +13,7 @@ platforms:
     groups:
       - zookeeper
     image: idealista/java-debian-ansible
-    image_version: latest
+    image_version: 3.1.1-debian9
     privileged: true
     capabilities:
       - SYS_ADMIN
@@ -30,7 +30,7 @@ platforms:
     groups:
       - zookeeper
     image: idealista/java-debian-ansible
-    image_version: latest
+    image_version: 3.1.1-debian9
     privileged: true
     capabilities:
       - SYS_ADMIN
@@ -47,7 +47,7 @@ platforms:
     groups:
       - zookeeper
     image: idealista/java-debian-ansible
-    image_version: latest
+    image_version: 3.1.1-debian9
     privileged: true
     capabilities:
       - SYS_ADMIN
