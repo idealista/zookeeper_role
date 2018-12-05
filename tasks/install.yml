@@ -13,11 +13,11 @@
   tags:
     skip_ansible_lint
 
-- name: ZOOKEEPER | Ensure zookeeper group
+- name: ZOOKEEPER | Ensure ZooKeeper group
   group:
     name: "{{ zookeeper_group }}"
 
-- name: ZOOKEEPER | Ensure zookeeper user
+- name: ZOOKEEPER | Ensure ZooKeeper user
   user:
     name: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
@@ -36,21 +36,21 @@
     - "{{ zookeeper_data_dir }}"
     - "{{ zookeeper_log_dir }}"
 
-- name: ZOOKEEPER | Check zookeeper version
+- name: ZOOKEEPER | Check ZooKeeper version
   shell: echo status | nc localhost 2181
   register: zookeeper_check
   changed_when: false
-  ignore_errors: true
+  failed_when: false
 
-- name: ZOOKEEPER | Untar zookeeper
+- name: ZOOKEEPER | Untar ZooKeeper
   unarchive:
     extra_opts: ['--strip-components=1']
     src: "{{ zookeeper_url }}"
-    remote_src: yes
+    remote_src: true
     dest: "{{ zookeeper_install_path }}"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
-  when: "zookeeper_force_reinstall or zookeeper_check|failed or zookeeper_version not in zookeeper_check.stdout"
+  when: "zookeeper_force_reinstall or zookeeper_check is failed or zookeeper_version not in zookeeper_check.stdout"
 
 - name: ZOOKEEPER | Create systemd service
   template:
