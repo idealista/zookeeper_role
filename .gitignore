@@ -5,6 +5,8 @@ tests/__pycache__
 .vagrant
 .cache/
 .pytest_cache
-
+.python-version
 *.iml
 .idea
+Pipfile
+Pipfile.lock
