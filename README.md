@@ -2,7 +2,7 @@
 
 # Apache ZooKeeper Ansible role [![Build Status](https://travis-ci.org/idealista/zookeeper-role.png)](https://travis-ci.org/idealista/zookeeper-role)
 
-This ansible role installs an Apache ZooKeeper service in a debian environment.
+This ansible role installs an Apache ZooKeeper service in a Debian environment.
 
 - [Getting Started](#getting-started)
 	- [Prerequisities](#prerequisities)
@@ -98,7 +98,7 @@ See also the list of [contributors](https://github.com/idealista/zookeeper-role/
 
 ## License
 
-![Apache 2.0 Licence](https://img.shields.io/hexpm/l/plug.svg)
+![Apache 2.0 License](https://img.shields.io/hexpm/l/plug.svg)
 
 This project is licensed under the [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license - see the [LICENSE](LICENSE) file for details.
 
