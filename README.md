@@ -2,7 +2,7 @@
 
 # Apache ZooKeeper Ansible role [![Build Status](https://travis-ci.org/idealista/zookeeper-role.png)](https://travis-ci.org/idealista/zookeeper-role)
 
-This ansible role installs an Apache ZooKeeper service in a Debian environment.
+This Ansible role installs an Apache ZooKeeper service in a Debian environment.
 
 - [Getting Started](#getting-started)
 	- [Prerequisities](#prerequisities)
@@ -22,7 +22,7 @@ These instructions will get you a copy of the role for your ansible playbook. On
 
 ### Prerequisities
 
-Ansible 2.5.3.0 version installed.
+Ansible 2.5.5.0 version installed.
 Molecule 2.19.0 version installed.
 
 Inventory destination should be a Debian environment.
