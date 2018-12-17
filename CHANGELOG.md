@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+- *[#32](https://github.com/idealista/zookeeper-role/issues/32) Fix CVE-2018-10855 (using Ansible > 2.5.5.0)*  @dortegau
+
 ## [1.3.0](https://github.com/idealista/zookeeper-role/tree/1.3.0) (2018-12-05)
 [Full Changelog](https://github.com/idealista/zookeeper-role/compare/1.2.0...1.3.0)
 
