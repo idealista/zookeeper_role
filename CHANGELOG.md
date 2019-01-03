@@ -1,7 +1,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [Unreleased](https://github.com/idealista/zookeeper-role/tree/develop)
+
+## [1.4.0](https://github.com/idealista/zookeeper-role/tree/1.4.0) (2019-01-03)
+[Full Changelog](https://github.com/idealista/zookeeper-role/compare/1.3.0...1.4.0)
+
+### Added
+- *[#23](https://github.com/idealista/zookeeper-role/issues/23) Support advanced configuration values* @jperera
+
+### Fixed
+- *[#32](https://github.com/idealista/zookeeper-role/issues/32) Fix CVE-2018-10855 (using Ansible > 2.5.5.0)*  @dortegau
 
 ## [1.3.0](https://github.com/idealista/zookeeper-role/tree/1.3.0) (2018-12-05)
 [Full Changelog](https://github.com/idealista/zookeeper-role/compare/1.2.0...1.3.0)
