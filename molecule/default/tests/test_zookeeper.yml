@@ -19,6 +19,7 @@ file:
     owner: {{ zookeeper_user }}
     group: {{ zookeeper_group }}
     filetype: file
+    contains: ["traceFile=zoo-trace.log"]
   {{ zookeeper_conf_dir }}/zookeeper-env.sh:
     exists: true
     owner: {{ zookeeper_user }}
