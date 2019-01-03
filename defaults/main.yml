@@ -58,3 +58,10 @@ zookeeper_env: {}
 zookeeper_force_myid: true
 
 zookeeper_force_reinstall: false
+
+#
+# You can add more zookeper config options using zookeeper_config_map
+#
+# zookeeper_config_map:
+#  - key: traceFile
+#    value: zoo-trace.log
