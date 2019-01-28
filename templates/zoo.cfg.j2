@@ -22,6 +22,8 @@ server.{{loop.index}}={{server}}:2888:3888
 {% endif %}
 {% endfor %}
 
+{% if zookeeper_config_map is defined %}
 {% for config in zookeeper_config_map %}
 {{config.key}}={{config.value}}
 {% endfor %}
+{% endif %}
