@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper-role/tree/develop)
 
+## [1.4.1](https://github.com/idealista/zookeeper-role/tree/1.4.1) (2019-01-30)
+### Fixed
+- *[#36](https://github.com/idealista/zookeeper-role/issues/36) check if zookeeper_config_map is defined*  @eskabetxe
+
 ## [1.4.0](https://github.com/idealista/zookeeper-role/tree/1.4.0) (2019-01-03)
 [Full Changelog](https://github.com/idealista/zookeeper-role/compare/1.3.0...1.4.0)
 
