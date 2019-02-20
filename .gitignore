@@ -1,3 +1,4 @@
+dockerhub/deploy.retry
 tests/playbook.retry
 tests/.cache
 tests/__pycache__
