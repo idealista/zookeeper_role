@@ -20,7 +20,7 @@ notifications:
 deploy:
   provider: script
   script:
-  - pipenv run ansible-playbook dockerhub/deploy.yml --extra-vars "docker_hub_email=${DOCKER_EMAIL} docker_hub_username=${DOCKER_USERNAME} docker_hub_password=${DOCKER_PASSWORD}"
+  - ANSIBLE_ROLES_PATH=../ pipenv run ansible-playbook dockerhub/deploy.yml --extra-vars "docker_hub_email=${DOCKER_EMAIL} docker_hub_username=${DOCKER_USERNAME} docker_hub_password=${DOCKER_PASSWORD}"
   on:
     branch: master
     tags: true
