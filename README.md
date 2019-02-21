@@ -3,6 +3,7 @@
 # Apache ZooKeeper Ansible role 
 
 [![Build Status](https://travis-ci.org/idealista/zookeeper-role.png)](https://travis-ci.org/idealista/zookeeper-role)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-idealista.zookeeper--role-B62682.svg)](https://galaxy.ansible.com/idealista/zookeeper-role)
 [![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/zookeeper.svg)](https://hub.docker.com/r/idealista/zookeeper/)
 
 This Ansible role installs an Apache ZooKeeper service in a Debian environment.
