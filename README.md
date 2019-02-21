@@ -33,7 +33,7 @@ Ansible 2.5.5.0 version installed.
 
 #### For testing purposes:
 
-* >= Python 2.7 
+* \>= Python 2.7 
 * [Pipenv](https://github.com/pypa/pipenv) 
 * [Docker](https://www.docker.com/) as driver
 
