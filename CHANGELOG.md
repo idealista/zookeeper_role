@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper-role/tree/develop)
 ### Added
-- *[#26](https://github.com/idealista/zookeeper-role/issues/26) Adding deployment to docker hub via ansible playbook* @dortegau
+- *[#26](https://github.com/idealista/zookeeper-role/issues/26) Adding deployment to Docker Hub via ansible playbook* @dortegau
 
 ## [1.4.1](https://github.com/idealista/zookeeper-role/tree/1.4.1) (2019-01-30)
 [Full Changelog](https://github.com/idealista/zookeeper-role/compare/1.4.0...1.4.1)

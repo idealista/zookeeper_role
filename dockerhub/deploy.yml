@@ -14,8 +14,8 @@
         name: "zookeeper"
         hostname: "zookeeper"
         image: "idealista/zookeeper"
-        privileged: yes
-    
+        privileged: true
+
     - name: Add container to in-memory inventory
       add_host:
         name: "zookeeper"
@@ -42,7 +42,7 @@
         email: "{{ docker_hub_email }}"
         username: "{{ docker_hub_username }}"
         password: "{{ docker_hub_password }}"
-    
+
     - name: Tag and push to Docker Hub
       command: docker push idealista/zookeeper:latest
 
