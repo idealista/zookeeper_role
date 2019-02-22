@@ -2,9 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
+
+## [1.5.0](https://github.com/idealista/zookeeper_role/tree/1.5.0) (2019-02-22)
+[Full Changelog](https://github.com/idealista/zookeeper_role/compare/1.4.1...1.5.0)
 ### Changed
 - *[#40](https://github.com/idealista/zookeeper_role/issues/40) Changing role name* @dortegau
-
 ### Added
 - *[#26](https://github.com/idealista/zookeeper_role/issues/26) Adding deployment to Docker Hub via ansible playbook* @dortegau
 
