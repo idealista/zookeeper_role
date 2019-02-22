@@ -12,8 +12,7 @@ platforms:
   - name: zookeeper1
     groups:
       - zookeeper
-    image: idealista/java-debian-ansible
-    image_version: 3.1.1-debian9
+    image: idealista/jdk:8u181-stretch-openjdk-headless
     privileged: true
     capabilities:
       - SYS_ADMIN
@@ -29,8 +28,7 @@ platforms:
   - name: zookeeper2
     groups:
       - zookeeper
-    image: idealista/java-debian-ansible
-    image_version: 3.1.1-debian9
+    image: idealista/jdk:8u181-stretch-openjdk-headless
     privileged: true
     capabilities:
       - SYS_ADMIN
@@ -46,8 +44,7 @@ platforms:
   - name: zookeeper3
     groups:
       - zookeeper
-    image: idealista/java-debian-ansible
-    image_version: 3.1.1-debian9
+    image: idealista/jdk:8u181-stretch-openjdk-headless
     privileged: true
     capabilities:
       - SYS_ADMIN

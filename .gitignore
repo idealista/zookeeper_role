@@ -1,3 +1,4 @@
+dockerhub/deploy.retry
 tests/playbook.retry
 tests/.cache
 tests/__pycache__
@@ -8,5 +9,4 @@ tests/__pycache__
 .python-version
 *.iml
 .idea
-Pipfile
-Pipfile.lock
+Pipfile*
