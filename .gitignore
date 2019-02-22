@@ -9,5 +9,4 @@ tests/__pycache__
 .python-version
 *.iml
 .idea
-Pipfile
-Pipfile.lock
+Pipfile*
