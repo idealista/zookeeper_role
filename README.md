@@ -1,6 +1,10 @@
-![Logo](logo.gif)
+![Logo](https://raw.githubusercontent.com/idealista/zookeeper_role/master/logo.gif)
 
-# Apache ZooKeeper Ansible role [![Build Status](https://travis-ci.org/idealista/zookeeper-role.png)](https://travis-ci.org/idealista/zookeeper-role)
+# Apache ZooKeeper Ansible role 
+
+[![Build Status](https://travis-ci.org/idealista/zookeeper_role.png)](https://travis-ci.org/idealista/zookeeper_role)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-idealista.zookeeper__role-B62682.svg)](https://galaxy.ansible.com/idealista/zookeeper_role)
+[![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/zookeeper.svg)](https://hub.docker.com/r/idealista/zookeeper/)
 
 This Ansible role installs an Apache ZooKeeper service in a Debian environment.
 
@@ -14,30 +18,36 @@ This Ansible role installs an Apache ZooKeeper service in a Debian environment.
 - [Authors](#authors)
 - [License](#license)
 - [Contributing](#contributing)
-- [Acknowledgments](#acknowledgments)
 
 ## Getting Started
 
-These instructions will get you a copy of the role for your ansible playbook. Once launched, it will install an Apache ZooKeeper server.
+These instructions will get you a copy of the role for your Ansible Playbook. Once launched, it will install an Apache ZooKeeper server.
 
 ### Prerequisities
 
+#### To execute this role:
+
 Ansible 2.5.5.0 version installed.
-Molecule 2.19.0 version installed.
 
-Inventory destination should be a Debian environment.
+:warning: Inventory destination should be a Debian environment. Notice that you will need to [install Java](https://github.com/idealista/java_role) in that environment after execute this role.
 
-Notice that automatically java is installed as dependency.
+#### For testing purposes:
 
-For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver
+* \>= Python 2.7 
+* [Pipenv](https://github.com/pypa/pipenv) 
+* [Docker](https://www.docker.com/) as driver
+
+:warning: As this role is ready to use in production, the image hosted in [Docker Hub]((https://hub.docker.com/r/idealista/zookeeper/)) is only for testing purposes. That image is deployed using *rolling tags* and major changes could break your tests. 
+
+**We strongly do not recommend to use containers in production based on that image** (maybe it will be ready in future releases). 
 
 ### Installing
 
 Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
-- src: idealista.zookeeper-role
-  version: 1.3.0
+- src: idealista.zookeeper_role
+  version: 1.5.0
   name: zookeeper
 ```
 
@@ -51,11 +61,10 @@ Use in a playbook:
 
 ```
 ---
+
 - hosts: someserver
   roles:
-    - {
-				role: zookeeper
-      }
+    - zookeeper
 ```
 
 ## Usage
@@ -82,11 +91,11 @@ $ pipenv run molecule test
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.5.3.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.5.5.0-green.svg)
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/idealista/zookeeper-role/tags).
+For the versions available, see the [tags on this repository](https://github.com/idealista/zookeeper_role/tags).
 
 Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
 
@@ -94,7 +103,7 @@ Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGE
 
 * **Idealista** - *Work with* - [idealista](https://github.com/idealista)
 
-See also the list of [contributors](https://github.com/idealista/zookeeper-role/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/idealista/zookeeper_role/contributors) who participated in this project.
 
 ## License
 

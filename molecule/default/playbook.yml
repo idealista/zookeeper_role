@@ -11,4 +11,4 @@
         - net-tools
         - netcat
   roles:
-    - zookeeper-role
+    - zookeeper_role
