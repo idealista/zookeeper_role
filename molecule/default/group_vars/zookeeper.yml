@@ -1,7 +1,5 @@
 ---
 
-zookeeper_version: 3.4.13
-
 zookeeper_hosts:
   - host: zookeeper1
     ip: "{{ (ansible_hostname == 'zookeeper1') | ternary('0.0.0.0', 'zookeeper1') }}"
