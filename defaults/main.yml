@@ -1,6 +1,6 @@
 ---
 ## General
-zookeeper_version: 3.4.13
+zookeeper_version: 3.4.14
 
 ## Service options
 
