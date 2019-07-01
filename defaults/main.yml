@@ -1,6 +1,7 @@
 ---
 ## General
-zookeeper_version: 3.4.13
+
+zookeeper_version: 3.5.5
 
 ## Service options
 
@@ -36,6 +37,9 @@ zookeeper_tick_time: "{{ tick_time }}"
 
 zookeeper_autopurge_purgeInterval: 0
 zookeeper_autopurge_snapRetainCount: 10
+
+# 4lw commands (stat, ruok, isro, ...)
+zookeeper_4lw_commands_whitelist: stat
 
 # Java options
 zookeeper_jmx_enabled: true
