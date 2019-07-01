@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
 ### Changed
-- *[#44](https://github.com/idealista/zookeeper_role/issues/44) Upgrade vertion to 3.4.14* @eskabetxe
+- *[#44](https://github.com/idealista/zookeeper_role/issues/44) Upgrade version to 3.4.14* @eskabetxe
 
 
 ## [1.5.0](https://github.com/idealista/zookeeper_role/tree/1.5.0) (2019-02-22)
