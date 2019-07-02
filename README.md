@@ -91,7 +91,7 @@ $ pipenv run molecule test
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.5.5.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.8.1-green.svg)
 
 ## Versioning
 
