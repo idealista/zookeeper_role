@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
+
+## [1.5.1](https://github.com/idealista/zookeeper_role/tree/1.5.1) (2019-07-04)
 ### Changed
 - *[#46](https://github.com/idealista/zookeeper_role/issues/46) Upgrade pipenv versions* @eskabetxe
 - *[#44](https://github.com/idealista/zookeeper_role/issues/44) Upgrade version to 3.4.14* @eskabetxe
