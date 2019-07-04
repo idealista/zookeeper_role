@@ -27,7 +27,7 @@ These instructions will get you a copy of the role for your Ansible Playbook. On
 
 #### To execute this role:
 
-Ansible 2.5.5.0 version installed.
+Ansible 2.8.1 version installed.
 
 :warning: Inventory destination should be a Debian environment. Notice that you will need to [install Java](https://github.com/idealista/java_role) in that environment after execute this role.
 
@@ -91,7 +91,7 @@ $ pipenv run molecule test
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.5.5.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.8.1-green.svg)
 
 ## Versioning
 
