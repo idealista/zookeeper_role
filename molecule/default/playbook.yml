@@ -5,10 +5,7 @@
   pre_tasks:
     - name: installing required libs
       apt:
-        pkg: "{{ item }}"
+        pkg: ['net-tools', 'netcat']
         state: present
-      with_items:
-        - net-tools
-        - netcat
   roles:
     - zookeeper_role
