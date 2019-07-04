@@ -7,9 +7,8 @@
 
 - name: ZOOKEEPER | Installing dependencies
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ zookeeper_required_libs }}"
     state: present
-  with_items: "{{ zookeeper_required_libs }}"
   tags:
     skip_ansible_lint
 
@@ -37,8 +36,12 @@
     - "{{ zookeeper_log_dir }}"
 
 - name: ZOOKEEPER | Check ZooKeeper version
-  shell: echo status | nc localhost 2181
+  shell: |
+    set -o pipefail && \
+    echo status | nc localhost 2181
   register: zookeeper_check
+  args:
+    executable: /bin/bash
   changed_when: false
   failed_when: false
 
