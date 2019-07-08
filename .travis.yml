@@ -5,8 +5,7 @@ sudo: required
 services:
   - docker
 install:
-  - pip install pipenv
-  - pipenv install -r test-requirements.txt
+  - pip install -r test-requirements.txt
 
 env:
   global:
@@ -15,7 +14,7 @@ env:
   - secure: j7g0vouk54s0Z1fGwuF6iTk0ZwIzdLGB5isT4dtYYpyI+N+jdu1OrXX/gazZujsw7eNl5dICj0n0mbfPV6lrxegJfB4xdm6uvF0fODj5dbg8kdywsI8lxpd7nbAyWAUClAXw8ij+5ItIlIkHezge846olneU8JI31RxijDo1SvMdkd1PWlrbW0EBv7iAAA2Ex7HIM9MxBYFZKpxwFFcjawiJFyNLunuhPGsyHdMc51uLfq/eIR0hRaZxTqyR2nd9r9dG/4xlaxAuVycD4tOyp4poIri+vkOS5Ff3dtUCv2KWIbiNAG8fcEXjwkmHJrwYTwv9eEtmLZwWgTAVFOMV2DEsR+y6EeZU3g8UT8TZc6pbylvhyihgLWp6UfVJjyqzYFXYhu5JO+QOUIrv/I3BnKWmEt8xnwIXhydNQJPnhnGDsde+UoUk5ZMUhBimOAxic2AonIhMHJk6w2nWzZIwHeBjsIAfsf89zy37TIgL2KrqTztOHZ8B6OgB9TdF756R2zBa8wsUdxav3XluxMLy74jTzHQdZWKljVLyeSMdjwO6hm7LVWvYp49e8IWhMcWO5rdTrhsYkXClTRZdI8BitoHGAiN/0eEIH2uO7lmXQrl1SqYtMbtYrO/7z+Jldt61bLvmn9mVoweK0YQYZMxSaY8LCnOBNiksIryGrNeJ2Zk=
 
 script:
-  - pipenv run molecule test
+  - molecule test --all
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
 deploy:
