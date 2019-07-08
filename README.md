@@ -1,9 +1,9 @@
-![Logo](https://raw.githubusercontent.com/idealista/zookeeper-role/master/logo.gif)
+![Logo](https://raw.githubusercontent.com/idealista/zookeeper_role/master/logo.gif)
 
 # Apache ZooKeeper Ansible role 
 
-[![Build Status](https://travis-ci.org/idealista/zookeeper-role.png)](https://travis-ci.org/idealista/zookeeper-role)
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-idealista.zookeeper__role-B62682.svg)](https://galaxy.ansible.com/idealista/zookeeper-role)
+[![Build Status](https://travis-ci.org/idealista/zookeeper_role.png)](https://travis-ci.org/idealista/zookeeper_role)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-idealista.zookeeper__role-B62682.svg)](https://galaxy.ansible.com/idealista/zookeeper_role)
 [![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/zookeeper.svg)](https://hub.docker.com/r/idealista/zookeeper/)
 
 This Ansible role installs an Apache ZooKeeper service in a Debian environment.
@@ -46,7 +46,7 @@ Ansible 2.8.1 version installed.
 Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
-- src: idealista.zookeeper-role
+- src: idealista.zookeeper_role
   version: 1.5.0
   name: zookeeper
 ```
@@ -95,7 +95,7 @@ $ pipenv run molecule test
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/idealista/zookeeper-role/tags).
+For the versions available, see the [tags on this repository](https://github.com/idealista/zookeeper_role/tags).
 
 Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
 
@@ -103,7 +103,7 @@ Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGE
 
 * **Idealista** - *Work with* - [idealista](https://github.com/idealista)
 
-See also the list of [contributors](https://github.com/idealista/zookeeper-role/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/idealista/zookeeper_role/contributors) who participated in this project.
 
 ## License
 
