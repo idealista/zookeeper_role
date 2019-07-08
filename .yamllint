@@ -13,5 +13,6 @@ rules:
   # truthy: disable
 
 ignore: |
+  .molecule/
   tests/
   .travis.yml

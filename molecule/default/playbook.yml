@@ -8,4 +8,4 @@
         pkg: ['net-tools', 'netcat']
         state: present
   roles:
-    - zookeeper_role
+    - zookeeper-role
