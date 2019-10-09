@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
+### Changed
+- *[#52](https://github.com/idealista/zookeeper_role/issues/52) Added comment filter to template Ansible managed comments * @angeldelrio
 
 ## [1.5.1](https://github.com/idealista/zookeeper_role/tree/1.5.1) (2019-07-04)
 ### Changed
