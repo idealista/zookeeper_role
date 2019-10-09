@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
+- *Using idealista/jdk:8u222-stretch-openjdk-headless Docker Image in Molecule Tests* @dortegau
 
 ## [1.5.1](https://github.com/idealista/zookeeper_role/tree/1.5.1) (2019-07-04)
 ### Changed
