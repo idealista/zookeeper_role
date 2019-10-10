@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
+
+
+## [2.0.0](https://github.com/idealista/zookeeper_role/tree/2.0.0) (2019-10-10)
 ### Added
 - *Added whitelist of commands for check stat of current zookeeper running* @adrian-arapiles
 - *Added matrix to travis for test version <3.5.5 and >=3.5.5* @adrian-arapiles
