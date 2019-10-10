@@ -1,7 +1,7 @@
-FROM idealista/jdk:8u181-stretch-openjdk-headless
+FROM idealista/jdk:8u212-stretch-openjdk-headless
 LABEL maintainer="idealista <labs@idealista.com>"
 
-RUN apt-get update \
+RUN rm -rf /var/lib/apt/lists/* && apt-get update \
     && apt-get install -y sudo systemd systemd-sysv
 
 EXPOSE 2181 2888 3888

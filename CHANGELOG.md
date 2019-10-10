@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
 
+### Fixed
+- *[#57](https://github.com/idealista/zookeeper_role/issues/57) Fix dockerhub build image* @adrian-arapiles
 
 ## [2.0.0](https://github.com/idealista/zookeeper_role/tree/2.0.0) (2019-10-10)
 ### Added
