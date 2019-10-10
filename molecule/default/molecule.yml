@@ -12,7 +12,7 @@ platforms:
   - name: zookeeper1
     groups:
       - zookeeper
-    image: idealista/jdk:8u181-stretch-openjdk-headless
+    image: idealista/jdk:8u222-stretch-openjdk-headless
     privileged: false
     capabilities:
       - SYS_ADMIN
@@ -36,7 +36,7 @@ platforms:
   - name: zookeeper2
     groups:
       - zookeeper
-    image: idealista/jdk:8u181-stretch-openjdk-headless
+    image: idealista/jdk:8u222-stretch-openjdk-headless
     privileged: false
     capabilities:
       - SYS_ADMIN
@@ -60,7 +60,7 @@ platforms:
   - name: zookeeper3
     groups:
       - zookeeper
-    image: idealista/jdk:8u181-stretch-openjdk-headless
+    image: idealista/jdk:8u222-stretch-openjdk-headless
     privileged: false
     capabilities:
       - SYS_ADMIN
@@ -83,6 +83,10 @@ platforms:
 
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      zookeeper:
+        zookeeper_version: ${ZOOKEEPER_VERSION:-"3.5.5"}
   lint:
     name: ansible-lint
 scenario:

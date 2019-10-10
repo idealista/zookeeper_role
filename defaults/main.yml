@@ -1,6 +1,6 @@
 ---
 ## General
-zookeeper_version: 3.4.14
+zookeeper_version: 3.5.5
 
 ## Service options
 
@@ -58,6 +58,8 @@ zookeeper_env: {}
 zookeeper_force_myid: true
 
 zookeeper_force_reinstall: false
+
+zookeeper_4lw_commands_whitelist: stat
 
 #
 # You can add more zookeper config options using zookeeper_config_map

@@ -9,7 +9,7 @@
 This Ansible role installs an Apache ZooKeeper service in a Debian environment.
 
 - [Getting Started](#getting-started)
-	- [Prerequisities](#prerequisities)
+	- [Prerequisites](#prerequisities)
 	- [Installing](#installing)
 - [Usage](#usage)
 - [Testing](#testing)
@@ -23,11 +23,11 @@ This Ansible role installs an Apache ZooKeeper service in a Debian environment.
 
 These instructions will get you a copy of the role for your Ansible Playbook. Once launched, it will install an Apache ZooKeeper server.
 
-### Prerequisities
+### Prerequisites
 
 #### To execute this role:
 
-Ansible 2.8.1 version installed.
+Ansible 2.8.2 version installed.
 
 :warning: Inventory destination should be a Debian environment. Notice that you will need to [install Java](https://github.com/idealista/java_role) in that environment after execute this role.
 
@@ -47,7 +47,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.zookeeper_role
-  version: 1.5.0
+  version: 1.5.1
   name: zookeeper
 ```
 
@@ -91,7 +91,7 @@ $ pipenv run molecule test
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.8.1-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.8.2-green.svg)
 
 ## Versioning
 
