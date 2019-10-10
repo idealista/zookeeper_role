@@ -2,7 +2,16 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
-- *Using idealista/jdk:8u222-stretch-openjdk-headless Docker Image in Molecule Tests* @dortegau
+### Added
+- *Added whitelist of commands for check stat of current zookeeper running* @adrian-arapiles
+- *Added matrix to travis for test version <3.5.5 and >=3.5.5* @adrian-arapiles
+
+### Changed
+- *Use idealista/jdk:8u222-stretch-openjdk-headless Docker Image in Molecule Tests* @dortegau
+- *[#52](https://github.com/idealista/zookeeper_role/issues/52) Added comment filter to template Ansible managed comments* @angeldelrio
+- *Avoid privileged true on docker molecule test* @adrian-arapiles
+- *[#48](https://github.com/idealista/zookeeper_role/issues/48) Update url to download zookeeper for use 3.5.5 version* @adrian-arapiles
+- *Upgrade ansible version to 2.8.2 for security vulnerabilities* @adrian-arapiles
 
 ## [1.5.1](https://github.com/idealista/zookeeper_role/tree/1.5.1) (2019-07-04)
 ### Changed

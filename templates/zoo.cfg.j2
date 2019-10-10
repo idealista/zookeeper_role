@@ -27,3 +27,7 @@ server.{{loop.index}}={{server}}:2888:3888
 {{config.key}}={{config.value}}
 {% endfor %}
 {% endif %}
+
+{% if zookeeper_4lw_commands_whitelist is defined %}
+4lw.commands.whitelist={{ zookeeper_4lw_commands_whitelist }}
+{% endif %}
