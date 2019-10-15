@@ -16,6 +16,7 @@ zookeeper_service_state: started
 # Files & Paths
 zookeeper_data_dir: /usr/local/zookeeper
 zookeeper_log_dir: /var/log/zookeeper
+zookeeper_data_log_dir: "{{ zookeeper_log_dir }}"
 zookeeper_install_path: /opt/zookeeper
 zookeeper_conf_dir: "{{ zookeeper_install_path }}/conf"
 

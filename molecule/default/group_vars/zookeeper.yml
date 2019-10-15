@@ -14,3 +14,8 @@ zookeeper_hosts:
 zookeeper_config_map:
   - key: traceFile
     value: zoo-trace.log
+
+zookeeper_data_dir: /var/lib/zookeeper/data
+zookeeper_log_dir: /var/log/zookeeper
+zookeeper_install_path: /opt/zookeeper
+zookeeper_conf_dir: "{{ zookeeper_install_path }}/conf"
