@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
 ### Added
-- *Added `zookeeper_data_log_dir` to separate text log paths from Zk data log* @angeldelrio
+- *[#62](https://github.com/idealista/zookeeper_role/issues/62) Added `zookeeper_data_log_dir` to separate text log paths from Zk data log* @angeldelrio
 
 ## [2.0.1](https://github.com/idealista/zookeeper_role/tree/2.0.1) (2019-10-11)
 ### Fixed
