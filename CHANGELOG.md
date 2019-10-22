@@ -2,12 +2,16 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
-
 ### Added
+- *[#62](https://github.com/idealista/zookeeper_role/issues/62) Added `zookeeper_data_log_dir` to separate text log paths from Zk data log* @angeldelrio
 - *Add netcat to required libs for check zookeeper version installed* @adrian-arapiles
 ### Changed
 - *Update version zookeeper to new 3.5.6* @adrian-arapiles
 - *Update ansible, molecule and docker dependency of molecule to last current version* @adrian-arapiles
+### Fixed
+- *[#57](https://github.com/idealista/zookeeper_role/issues/57) Fix dockerhub build image* @adrian-arapiles
+
+## [2.0.1](https://github.com/idealista/zookeeper_role/tree/2.0.1) (2019-10-11)
 ### Fixed
 - *[#57](https://github.com/idealista/zookeeper_role/issues/57) Fix dockerhub build image* @adrian-arapiles
 
