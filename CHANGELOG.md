@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
+## [2.1.0](https://github.com/idealista/zookeeper_role/tree/2.1.0) (2019-10-22)
 ### Added
 - *[#62](https://github.com/idealista/zookeeper_role/issues/62) Added `zookeeper_data_log_dir` to separate text log paths from Zk data log* @angeldelrio
 - *Add netcat to required libs for check zookeeper version installed* @adrian-arapiles
