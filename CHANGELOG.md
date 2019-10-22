@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
 
+### Added
+- *Add netcat to required libs for check zookeeper version installed* @adrian-arapiles
 ### Fixed
 - *[#57](https://github.com/idealista/zookeeper_role/issues/57) Fix dockerhub build image* @adrian-arapiles
 
