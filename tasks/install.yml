@@ -33,6 +33,7 @@
     - "{{ zookeeper_install_path }}"
     - "{{ zookeeper_conf_dir }}"
     - "{{ zookeeper_data_dir }}"
+    - "{{ zookeeper_data_log_dir }}"
     - "{{ zookeeper_log_dir }}"
 
 - name: ZOOKEEPER | Check ZooKeeper version
