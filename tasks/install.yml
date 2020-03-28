@@ -38,7 +38,7 @@
 - name: ZOOKEEPER | Check ZooKeeper version
   shell: |
     set -o pipefail && \
-    echo status | nc localhost 2181
+    echo status | nc -q 3 localhost 2181
   register: zookeeper_check
   args:
     executable: /bin/bash
