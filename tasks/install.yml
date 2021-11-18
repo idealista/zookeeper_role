@@ -7,21 +7,21 @@
 
 - name: ZOOKEEPER | Installing dependencies
   apt:
-    pkg: "{{ zookeeper_required_libs }}"
+    name: "{{ zookeeper_required_libs }}"
     state: present
-  tags:
-    skip_ansible_lint
 
 - name: ZOOKEEPER | Ensure ZooKeeper group
   group:
     name: "{{ zookeeper_group }}"
+    system: true
 
 - name: ZOOKEEPER | Ensure ZooKeeper user
   user:
     name: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
-    home: /bin/false
-  ignore_errors: true
+    shell: /bin/false
+    system: true
+    create_home: false
 
 - name: ZOOKEEPER | Create install path
   file:
@@ -29,7 +29,8 @@
     state: directory
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
-  with_items:
+    mode: 0755
+  loop:
     - "{{ zookeeper_install_path }}"
     - "{{ zookeeper_conf_dir }}"
     - "{{ zookeeper_data_dir }}"
@@ -59,8 +60,9 @@
   template:
     src: zookeeper.service.j2
     dest: /etc/systemd/system/zookeeper.service
+    mode: 0644
   notify:
-    - Restart zookeeper
+    - restart zookeeper
 
 - name: ZOOKEEPER | Remove upstart service
   file:

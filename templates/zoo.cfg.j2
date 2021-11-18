@@ -5,9 +5,9 @@ clientPort={{ zookeeper_client_port }}
 initLimit={{ zookeeper_init_limit }}
 syncLimit={{ zookeeper_sync_limit }}
 
-{% if zookeeper_autopurge_purgeInterval > 0 %}
-autopurge.purgeInterval={{ zookeeper_autopurge_purgeInterval }}
-autopurge.snapRetainCount={{ zookeeper_autopurge_snapRetainCount }}
+{% if zookeeper_autopurge_purge_interval > 0 %}
+autopurge.purgeInterval={{ zookeeper_autopurge_purge_interval }}
+autopurge.snapRetainCount={{ zookeeper_autopurge_snap_retain_count }}
 {% endif %}
 
 {% for server in zookeeper_hosts %}

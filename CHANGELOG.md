@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
+
+### Added
+- *Be able to overwrite zookeeper_url variable from zip is downloaded* @adrian-arapiles
+### Changed
+- *Update version of zookeeper to latest 3.7.0* @adrian-arapiles
+- *Upgrade dependencies to latest versions and python to 3.9* @adrian-arapiles
+### Fixed
+- *Fixed wrong test and lint files* @adrian-arapiles
+
 ## [2.1.0](https://github.com/idealista/zookeeper_role/tree/2.1.0) (2019-10-22)
 ### Added
 - *[#62](https://github.com/idealista/zookeeper_role/issues/62) Added `zookeeper_data_log_dir` to separate text log paths from Zk data log* @angeldelrio

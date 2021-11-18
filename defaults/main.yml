@@ -1,7 +1,7 @@
 ---
 ## General
-zookeeper_version: 3.5.6
-
+zookeeper_version: 3.7.0
+zookeeper_url: "https://archive.apache.org/dist/zookeeper/zookeeper-{{ zookeeper_version }}/{{ (zookeeper_old_version) | ternary(zookeeper_old_package_name, zookeeper_package_name) }}.tar.gz"
 ## Service options
 
 # Owner
@@ -35,8 +35,8 @@ zookeeper_init_limit: "{{ init_limit }}"
 zookeeper_sync_limit: "{{ sync_limit }}"
 zookeeper_tick_time: "{{ tick_time }}"
 
-zookeeper_autopurge_purgeInterval: 0
-zookeeper_autopurge_snapRetainCount: 10
+zookeeper_autopurge_purge_interval: 0
+zookeeper_autopurge_snap_retain_count: 10
 
 # Java options
 zookeeper_jmx_enabled: true
@@ -49,7 +49,7 @@ zookeeper_max_rolling_log_file_count: 10
 
 # List of dict (i.e. {zookeeper_hosts:[{host:,id:},{host:,id:},...]})
 zookeeper_hosts:
-  - host: "{{inventory_hostname}}"
+  - host: "{{ inventory_hostname }}"
     id: 1
 
 # Dict of ENV settings to be written into the (optional) conf/zookeeper-env.sh

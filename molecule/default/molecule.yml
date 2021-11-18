@@ -3,95 +3,78 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
-  options:
-    config-file: .yamllint
+lint: |
+  yamllint -f colored .
+  ansible-lint --force-color .
 
 platforms:
   - name: zookeeper1
+    image: ${MOLECULE_DISTRO:-idealista/jdk:8u302-stretch-openjdk-headless}
     groups:
       - zookeeper
-    image: idealista/jdk:8u222-stretch-openjdk-headless
     privileged: false
     capabilities:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
-      - '/sys/fs/fuse/connections:/sys/fs/fuse/connections:ro'
-      - '/dev/hugepages:/dev/hugepages'
     tmpfs:
-      - '/tmp'
       - '/run'
       - '/run/lock'
-    devices:
-      - '/dev/fuse:/dev/fuse'
+    stop_signal: 'RTMIN+3'
+    command: '/lib/systemd/systemd'
     networks:
       - name: zookeeper-network
         links:
           - zookeeper2:zookeeper2
           - zookeeper3:zookeeper3
-    command: '/lib/systemd/systemd'
 
   - name: zookeeper2
+    image: ${MOLECULE_DISTRO:-idealista/jdk:8u302-stretch-openjdk-headless}
     groups:
       - zookeeper
-    image: idealista/jdk:8u222-stretch-openjdk-headless
     privileged: false
     capabilities:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
-      - '/sys/fs/fuse/connections:/sys/fs/fuse/connections:ro'
-      - '/dev/hugepages:/dev/hugepages'
     tmpfs:
-      - '/tmp'
       - '/run'
       - '/run/lock'
-    devices:
-      - '/dev/fuse:/dev/fuse'
+    stop_signal: 'RTMIN+3'
+    command: '/lib/systemd/systemd'
     networks:
       - name: zookeeper-network
         links:
           - zookeeper1:zookeeper1
           - zookeeper3:zookeeper3
-    command: '/lib/systemd/systemd'
 
   - name: zookeeper3
+    image: ${MOLECULE_DISTRO:-idealista/jdk:8u302-stretch-openjdk-headless}
     groups:
       - zookeeper
-    image: idealista/jdk:8u222-stretch-openjdk-headless
     privileged: false
     capabilities:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
-      - '/sys/fs/fuse/connections:/sys/fs/fuse/connections:ro'
-      - '/dev/hugepages:/dev/hugepages'
     tmpfs:
-      - '/tmp'
       - '/run'
       - '/run/lock'
-    devices:
-      - '/dev/fuse:/dev/fuse'
+    stop_signal: 'RTMIN+3'
+    command: '/lib/systemd/systemd'
     networks:
       - name: zookeeper-network
         links:
           - zookeeper1:zookeeper1
           - zookeeper2:zookeeper2
-    command: '/lib/systemd/systemd'
 
 provisioner:
   name: ansible
   inventory:
     group_vars:
       zookeeper:
-        zookeeper_version: ${ZOOKEEPER_VERSION:-"3.5.5"}
-  lint:
-    name: ansible-lint
-scenario:
-  name: default
+        zookeeper_version: ${ZOOKEEPER_VERSION:-"3.7.0"}
+  env:
+    ANSIBLE_FORCE_COLOR: 1
 verifier:
-  name: goss
-  lint:
-    name: yamllint
+  name: ansible
