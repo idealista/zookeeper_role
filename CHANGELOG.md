@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
 
 ### Added
+- *[#31](https://github.com/idealista/zookeeper_role/issues/31) Added task for check status of zookeeper running* @adrian-arapiles
 - *[#68](https://github.com/idealista/zookeeper_role/issues/68) Be able to overwrite zookeeper_url variable from zip is downloaded* @adrian-arapiles
 ### Changed
 - *Update version of zookeeper to latest 3.7.0* @adrian-arapiles
