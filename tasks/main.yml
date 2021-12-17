@@ -3,14 +3,20 @@
 - name: ZOOKEEPER | Install
   import_tasks: install.yml
   tags:
-    - install
+    - zookeeper_install
+
+- name: ZOOKEEPER | Agent config
+  import_tasks: agent.yml
+  tags:
+    - kafka_agents_config
+  when: zookeeper_agents_config is defined
 
 - name: ZOOKEEPER | Config
   import_tasks: config.yml
   tags:
-    - config
+    - zookeeper_config
 
 - name: ZOOKEEPER | Service
   import_tasks: service.yml
   tags:
-    - service
+    - zookeeper_service
