@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
+## [2.2.0](https://github.com/idealista/zookeeper_role/tree/2.11.0) (2021-12-17)
+## Added
+- *[#69](https://github.com/idealista/zookeeper_role/issues/69) Support for agent installation.* @jmonterrubio
 ### Fixed
 - *[#65](https://github.com/idealista/zookeeper_role/issues/65) Set `zookeeper_data_log_dir` ownership to `zookeeper_user` * @angeldelrio
 

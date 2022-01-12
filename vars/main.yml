@@ -11,3 +11,10 @@ zookeeper_package_name: "apache-zookeeper-{{ zookeeper_version }}-bin"
 zookeeper_url: "https://archive.apache.org/dist/zookeeper/zookeeper-{{ zookeeper_version }}/{{ (zookeeper_old_version) | ternary(zookeeper_old_package_name, zookeeper_package_name) }}.tar.gz"
 
 zookeeper_main_file: org.apache.zookeeper.server.quorum.QuorumPeerMain
+
+zookeeper_supported_agents_extensions:
+  - '.zip'
+  - '.tar'
+  - '.tar.gz'
+  - '.tar.bz2'
+  - '.tar.xz'

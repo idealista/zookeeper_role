@@ -1,0 +1,6 @@
+---
+
+- name: Converge
+  hosts: zookeeper
+  roles:
+    - zookeeper_role
