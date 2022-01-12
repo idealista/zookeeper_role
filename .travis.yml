@@ -1,12 +1,17 @@
+---
+dist: xenial
 language: python
-python: "2.7.15"
-sudo: required
-
+python: "3.7"
+os: linux
 services:
-- docker
+  - docker
+
 install:
-- pip install pipenv
-- pipenv install -r test-requirements.txt --python 2.7
+  - pip install pipenv
+  - pipenv sync
+script:
+  - pipenv run molecule test --all
+
 
 env:
   global:

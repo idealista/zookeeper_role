@@ -25,21 +25,11 @@ These instructions will get you a copy of the role for your Ansible Playbook. On
 
 ### Prerequisites
 
-#### To execute this role:
+Ansible 2.8.8 version installed.
 
-Ansible 2.8.6 version installed.
+Molecule 3.x.x version installed.
 
-:warning: Inventory destination should be a Debian environment. Notice that you will need to [install Java](https://github.com/idealista/java_role) in that environment after execute this role.
-
-#### For testing purposes:
-
-* \>= Python 2.7 
-* [Pipenv](https://github.com/pypa/pipenv) 
-* [Docker](https://www.docker.com/) as driver
-
-:warning: As this role is ready to use in production, the image hosted in [Docker Hub]((https://hub.docker.com/r/idealista/zookeeper/)) is only for testing purposes. That image is deployed using *rolling tags* and major changes could break your tests. 
-
-**We strongly do not recommend to use containers in production based on that image** (maybe it will be ready in future releases). 
+For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver and [Goss](https://github.com/aelsabbahy/goss) as verifier.
 
 ### Installing
 
@@ -47,7 +37,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.zookeeper_role
-  version: 1.5.1
+  version: 1.11.0
   name: zookeeper
 ```
 
@@ -83,15 +73,23 @@ zookeeper_hosts:
 
 ## Testing
 
+### Install dependencies
 
 ```sh
-$ pipenv install -r test-requirements.txt --python 2.7
-$ pipenv run molecule test
+$ pipenv sync
+```
+
+For more information read the [pipenv docs](ipenv-fork.readthedocs.io/en/latest/).
+
+### Testing
+
+```sh
+$ pipenv run molecule test 
 ```
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.8.6-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.8.8-green.svg)
 
 ## Versioning
 

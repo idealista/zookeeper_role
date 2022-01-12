@@ -1,0 +1,106 @@
+---
+
+- name: ZOOKEEPER | agent installation | Install required packages
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    update_cache: yes
+  when: zookeeper_agents_required_libs is defined
+  with_items: '{{ zookeeper_agents_required_libs }}'
+
+- name: ZOOKEEPER | agent installation | Ensure install path
+  file:
+    path: "{{ zookeeper_install_path }}/{{ item.name }}"
+    state: directory
+    owner: "{{ zookeeper_user }}"
+    group: "{{ zookeeper_group }}"
+  with_items: '{{ zookeeper_agents_config }}'
+
+- name: ZOOKEEPER | agent installation | Check if agent is installed
+  stat:
+    path: "{{ zookeeper_install_path }}/{{ item.0.name }}/{{ item.1 | basename }}"
+  register: agent_file_exists
+  with_subelements:
+    - "{{ zookeeper_agents_config }}"
+    - java_opts
+
+- name: ZOOKEEPER | agent installation | Check agent version
+  command: "cat {{ zookeeper_install_path }}/{{ item.0.name }}/version.txt"
+  register: agent_version_checked
+  changed_when: false
+  ignore_errors: true
+  with_subelements:
+    - "{{ zookeeper_agents_config }}"
+    - java_opts
+
+- name: ZOOKEEPER | agent installation | Download agent
+  get_url:
+    dest: "/tmp"
+    url: "{{ item.download_url }}"
+    owner: "{{ zookeeper_user }}"
+    group: "{{ zookeeper_group }}"
+  register: agent_downloaded
+  loop: "{{ zookeeper_agents_config | flatten(levels=1) }}"
+  loop_control:
+    index_var: index
+  when: >
+    item.download_url | basename | splitext | last in zookeeper_supported_agents_extensions and
+    (zookeeper_agents_force_reinstall or not
+    agent_file_exists.results[index].stat.exists or
+    item.version != agent_version_checked.results[index].stdout)
+
+- name: ZOOKEEPER | agent installation | Unarchive package
+  unarchive:
+    src: "/tmp/{{ item.download_url | basename }}"
+    dest: "{{ zookeeper_install_path }}"
+    remote_src: yes
+    owner: "{{ zookeeper_user }}"
+    group: "{{ zookeeper_group }}"
+    mode: 0755
+  when: item.download_url | basename | splitext | last in zookeeper_supported_agents_extensions and agent_downloaded.changed
+  with_items: '{{ zookeeper_agents_config }}'
+  tags:
+    - skip_ansible_lint
+
+- name: ZOOKEEPER | agent installation | Download agent jar
+  get_url:
+    dest: "{{ zookeeper_install_path }}/{{ item.name }}"
+    url: "{{ item.download_url }}"
+    owner: "{{ zookeeper_user }}"
+    group: "{{ zookeeper_group }}"
+  loop: '{{ zookeeper_agents_config | flatten(levels=1) }}'
+  register: agent_jar_downloaded
+  when: item.download_url | basename | splitext | last not in zookeeper_supported_agents_extensions
+
+- name: ZOOKEEPER | agent installation | Copy version number file
+  template:
+    src: "agent-version.txt.j2"
+    dest: "{{ zookeeper_install_path }}/{{ item.name }}/version.txt"
+    owner: "{{ zookeeper_user }}"
+    group: "{{ zookeeper_group }}"
+    mode: 0644
+  with_items: '{{ zookeeper_agents_config }}'
+
+- name: ZOOKEEPER | agent installation | Check configuration files
+  set_fact:
+    zookeeper_agents_configuration: "{{ zookeeper_agents_configuration|default([]) + [ {'name': item.0.name, 'file': item.1, 'params': item.0.params}] }}"
+  with_subelements:
+    - "{{ zookeeper_agents_config }}"
+    - configuration_files
+
+- name: ZOOKEEPER | agent installation | Configure the Java agent
+  template:
+    src: "{{ playbook_dir }}/templates/agents/{{ item.name }}/{{ item.file }}.j2"
+    dest: "{{ zookeeper_install_path }}/{{ item.name }}/{{ item.file }}"
+    owner: "{{ zookeeper_user }}"
+    group: "{{ zookeeper_group }}"
+  notify: Restart zookeeper
+  with_items: '{{ zookeeper_agents_configuration }}'
+
+- name: ZOOKEEPER | agent installation | Check java options
+  set_fact:
+    zookeeper_agent_java_opts: "{% set zookeeper_agent_java_opts = zookeeper_agent_java_opts|default([]) + [item.1] %}{{ zookeeper_agent_java_opts|list }}"
+  notify: Restart zookeeper
+  with_subelements:
+    - "{{ zookeeper_agents_config }}"
+    - java_opts
