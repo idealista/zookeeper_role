@@ -18,7 +18,7 @@
 
 - name: ZOOKEEPER | Get output of status
   shell:
-    cmd: echo status | nc localhost 2181
+    cmd: "echo status | nc localhost {{ zookeeper_client_port }}"
   changed_when: false
   register: zookeeper_status
 

@@ -22,18 +22,10 @@ zookeeper_conf_dir: "{{ zookeeper_install_path }}/conf"
 
 
 # Connection properties
-# Deprecated
-client_port: 2181
-# Deprecated
-init_limit: 5
-# Deprecated
-sync_limit: 2
-# Deprecated
-tick_time: 2000
-zookeeper_client_port: "{{ client_port }}"
-zookeeper_init_limit: "{{ init_limit }}"
-zookeeper_sync_limit: "{{ sync_limit }}"
-zookeeper_tick_time: "{{ tick_time }}"
+zookeeper_client_port: 2181
+zookeeper_init_limit: 5
+zookeeper_sync_limit: 2
+zookeeper_tick_time: 2000
 
 zookeeper_autopurge_purge_interval: 0
 zookeeper_autopurge_snap_retain_count: 10
