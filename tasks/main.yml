@@ -20,3 +20,8 @@
   import_tasks: service.yml
   tags:
     - zookeeper_service
+
+- name: ZOOKEEPER | Check zookeepers cluster status
+  shell: |
+    set -o pipefail && \
+    echo stat | nc 127.0.0.1 2181 | grep Mode | grep -E -w  "leader|follower"
