@@ -40,3 +40,11 @@
     mode: 0644
   notify:
     - restart zookeeper
+
+- name: ZOOKEEPER | Create systemd service
+  template:
+    src: zookeeper.service.j2
+    dest: /etc/systemd/system/zookeeper.service
+    mode: 0644
+  notify:
+    - restart zookeeper

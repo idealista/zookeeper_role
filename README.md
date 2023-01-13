@@ -37,9 +37,7 @@ Ansible 2.8.* version installed. Tested with 4.8.0
 * [Pipenv](https://github.com/pypa/pipenv) 
 * [Docker](https://www.docker.com/) as driver
 
-:warning: As this role is ready to use in production, the image hosted in [Docker Hub]((https://hub.docker.com/r/idealista/zookeeper/)) is only for testing purposes. That image is deployed using *rolling tags* and major changes could break your tests. 
-
-**We strongly do not recommend to use containers in production based on that image** (maybe it will be ready in future releases). 
+For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver and [Goss](https://github.com/aelsabbahy/goss) as verifier.
 
 ### Installing
 
@@ -83,6 +81,7 @@ zookeeper_hosts:
 
 ## Testing
 
+### Install dependencies
 
 ```sh
 $ pipenv sync

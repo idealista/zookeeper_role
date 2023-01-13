@@ -34,6 +34,7 @@
     - "{{ zookeeper_install_path }}"
     - "{{ zookeeper_conf_dir }}"
     - "{{ zookeeper_data_dir }}"
+    - "{{ zookeeper_data_log_dir }}"
     - "{{ zookeeper_log_dir }}"
 
 - name: ZOOKEEPER | Check ZooKeeper version
@@ -55,14 +56,6 @@
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
   when: "zookeeper_force_reinstall or zookeeper_check is failed or zookeeper_version not in zookeeper_check.stdout"
-
-- name: ZOOKEEPER | Create systemd service
-  template:
-    src: zookeeper.service.j2
-    dest: /etc/systemd/system/zookeeper.service
-    mode: 0644
-  notify:
-    - restart zookeeper
 
 - name: ZOOKEEPER | Remove upstart service
   file:

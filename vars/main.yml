@@ -10,3 +10,10 @@ zookeeper_package_name: "apache-zookeeper-{{ zookeeper_version }}-bin"
 
 
 zookeeper_main_file: org.apache.zookeeper.server.quorum.QuorumPeerMain
+
+zookeeper_supported_agents_extensions:
+  - '.zip'
+  - '.tar'
+  - '.tar.gz'
+  - '.tar.bz2'
+  - '.tar.xz'

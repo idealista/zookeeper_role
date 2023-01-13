@@ -31,8 +31,6 @@ zookeeper_autopurge_purge_interval: 0
 zookeeper_autopurge_snap_retain_count: 10
 
 # Java options
-zookeeper_jmx_enabled: true
-zookeeper_jmx_port: 1099
 zookeeper_java_opts: "-Djava.net.preferIPv4Stack=true"
 
 # Rolling file appender setttings
@@ -60,3 +58,18 @@ zookeeper_4lw_commands_whitelist: stat
 # zookeeper_config_map:
 #  - key: traceFile
 #    value: zoo-trace.log
+
+zookeeper_agents_force_reinstall: false
+
+# zookeeper_agents_config:
+#   - name: "agent_name"
+#     download_url: "download_url"
+#     version: "x.x.x"
+#     java_opts:
+#       - '-javaagent:{{ zookeeper_install_path }}/agent_name/agent_file'
+#     configuration_files:
+#       - "configuration_file.yml"
+#     params: {
+#       application_name: "application_name",
+#       license_key: "license_key"
+#     }

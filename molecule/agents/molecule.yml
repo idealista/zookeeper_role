@@ -1,0 +1,65 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  yamllint .
+  ansible-lint .
+
+platforms:
+  - name: zookeeper1
+    groups:
+      - zookeeper
+    image: idealista/jdk:8u302-stretch-openjdk-headless
+    privileged: true
+    capabilities:
+      - SYS_ADMIN
+    volumes:
+      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    networks:
+      - name: zookeeper-network
+        links:
+          - zookeeper2:zookeeper2
+          - zookeeper3:zookeeper3
+    command: '/lib/systemd/systemd'
+    stop_signal: 'RTMIN+3'
+
+  - name: zookeeper2
+    groups:
+      - zookeeper
+    image: idealista/jdk:8u302-stretch-openjdk-headless
+    privileged: true
+    capabilities:
+      - SYS_ADMIN
+    volumes:
+      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    networks:
+      - name: zookeeper-network
+        links:
+          - zookeeper1:zookeeper1
+          - zookeeper3:zookeeper3
+    command: '/lib/systemd/systemd'
+    stop_signal: 'RTMIN+3'
+
+  - name: zookeeper3
+    groups:
+      - zookeeper
+    image: idealista/jdk:8u302-stretch-openjdk-headless
+    privileged: true
+    capabilities:
+      - SYS_ADMIN
+    volumes:
+      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    networks:
+      - name: zookeeper-network
+        links:
+          - zookeeper1:zookeeper1
+          - zookeeper2:zookeeper2
+    command: '/lib/systemd/systemd'
+    stop_signal: 'RTMIN+3'
+
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
