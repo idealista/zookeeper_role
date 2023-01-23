@@ -6,8 +6,8 @@
   tasks:
     - name: Set variable facts
       set_fact:
-        docker_base_image: "{{ lookup('env', 'BASE_IMAGE') | default('8u302-stretch-openjdk-headless', true) }}"
-        docker_zookeeper_version: "{{ lookup('env', 'ZOOKEEPER_VERSION') | default('3.7.0', true) }}"
+        docker_base_image: "{{ lookup('env', 'BASE_IMAGE') | default('8u322-stretch-openjdk-headless', true) }}"
+        docker_zookeeper_version: "{{ lookup('env', 'ZOOKEEPER_VERSION') | default('3.8.0', true) }}"
 
     - name: Build Docker Image
       docker_image:
@@ -37,8 +37,8 @@
   pre_tasks:
     - name: Set variable facts
       set_fact:
-        docker_base_image: "{{ lookup('env', 'BASE_IMAGE') | default('8u302-stretch-openjdk-headless', true) }}"
-        docker_zookeeper_version: "{{ lookup('env', 'ZOOKEEPER_VERSION') | default('3.7.0', true) }}"
+        docker_base_image: "{{ lookup('env', 'BASE_IMAGE') | default('8u322-stretch-openjdk-headless', true) }}"
+        docker_zookeeper_version: "{{ lookup('env', 'ZOOKEEPER_VERSION') | default('3.8.0', true) }}"
   roles:
     - role: zookeeper_role
       vars:

@@ -14,12 +14,12 @@ script:
 
 env:
   matrix:
-    - MOLECULE_DISTRO=idealista/jdk:8u302-stretch-openjdk-headless ZOOKEEPER_VERSION=3.4.14
+    - MOLECULE_DISTRO=idealista/jdk:8u322-stretch-openjdk-headless ZOOKEEPER_VERSION=3.4.14
     - MOLECULE_DISTRO=idealista/jdk:8u292-buster-adoptopenjdk-headless ZOOKEEPER_VERSION=3.4.14
-    - MOLECULE_DISTRO=idealista/jdk:8u302-stretch-openjdk-headless ZOOKEEPER_VERSION=3.5.6
+    - MOLECULE_DISTRO=idealista/jdk:8u322-stretch-openjdk-headless ZOOKEEPER_VERSION=3.5.6
     - MOLECULE_DISTRO=idealista/jdk:8u292-buster-adoptopenjdk-headless ZOOKEEPER_VERSION=3.5.6
-    - MOLECULE_DISTRO=idealista/jdk:8u302-stretch-openjdk-headless ZOOKEEPER_VERSION=3.7.0
-    - MOLECULE_DISTRO=idealista/jdk:8u292-buster-adoptopenjdk-headless ZOOKEEPER_VERSION=3.7.0
+    - MOLECULE_DISTRO=idealista/jdk:8u322-stretch-openjdk-headless ZOOKEEPER_VERSION=3.8.0
+    - MOLECULE_DISTRO=idealista/jdk:8u292-buster-adoptopenjdk-headless ZOOKEEPER_VERSION=3.8.0
 
 notifications:
   webhooks:
