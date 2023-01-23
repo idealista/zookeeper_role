@@ -1,7 +1,9 @@
 tickTime={{ zookeeper_tick_time }}
 dataDir={{ zookeeper_data_dir }}
 dataLogDir={{ zookeeper_data_log_dir }}
+{% if zookeeper_version is version('3.5.0', '<') %}
 clientPort={{ zookeeper_client_port }}
+{% endif %}
 initLimit={{ zookeeper_init_limit }}
 syncLimit={{ zookeeper_sync_limit }}
 
@@ -13,12 +15,12 @@ autopurge.snapRetainCount={{ zookeeper_autopurge_snap_retain_count }}
 {% for server in zookeeper_hosts %}
 {% if server.host is defined %}
 {% if server.ip is defined %}
-server.{{server.id}}={{server.ip}}:2888:3888
+server.{{server.id}}={{server.ip}}:2888:3888{{ ';' ~ zookeeper_client_port if (zookeeper_version is version('3.5.0', '>=')) else '' }}
 {% else %}
-server.{{server.id}}={{server.host}}:2888:3888
+server.{{server.id}}={{server.host}}:2888:3888{{ ';' ~ zookeeper_client_port if (zookeeper_version is version('3.5.0', '>=')) else '' }}
 {% endif %}
 {% else %}
-server.{{loop.index}}={{server}}:2888:3888
+server.{{loop.index}}={{server}}:2888:3888{{ ';' ~ zookeeper_client_port if (zookeeper_version is version('3.5.0', '>=')) else '' }}
 {% endif %}
 {% endfor %}
 

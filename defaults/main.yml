@@ -1,6 +1,6 @@
 ---
 ## General
-zookeeper_version: 3.7.0
+zookeeper_version: 3.8.0
 zookeeper_url: "https://archive.apache.org/dist/zookeeper/zookeeper-{{ zookeeper_version }}/{{ (zookeeper_old_version) | ternary(zookeeper_old_package_name, zookeeper_package_name) }}.tar.gz"
 ## Service options
 

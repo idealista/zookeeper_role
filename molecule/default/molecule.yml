@@ -9,7 +9,7 @@ lint: |
 
 platforms:
   - name: zookeeper1
-    image: ${MOLECULE_DISTRO:-idealista/jdk:8u302-stretch-openjdk-headless}
+    image: ${MOLECULE_DISTRO:-idealista/jdk:8u322-stretch-openjdk-headless}
     groups:
       - zookeeper
     privileged: false
@@ -29,7 +29,7 @@ platforms:
           - zookeeper3:zookeeper3
 
   - name: zookeeper2
-    image: ${MOLECULE_DISTRO:-idealista/jdk:8u302-stretch-openjdk-headless}
+    image: ${MOLECULE_DISTRO:-idealista/jdk:8u322-stretch-openjdk-headless}
     groups:
       - zookeeper
     privileged: false
@@ -49,7 +49,7 @@ platforms:
           - zookeeper3:zookeeper3
 
   - name: zookeeper3
-    image: ${MOLECULE_DISTRO:-idealista/jdk:8u302-stretch-openjdk-headless}
+    image: ${MOLECULE_DISTRO:-idealista/jdk:8u322-stretch-openjdk-headless}
     groups:
       - zookeeper
     privileged: false
@@ -73,7 +73,7 @@ provisioner:
   inventory:
     group_vars:
       zookeeper:
-        zookeeper_version: ${ZOOKEEPER_VERSION:-"3.7.0"}
+        zookeeper_version: ${ZOOKEEPER_VERSION:-"3.8.0"}
   env:
     ANSIBLE_FORCE_COLOR: 1
 verifier:
