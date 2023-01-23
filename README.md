@@ -2,7 +2,7 @@
 
 # Apache ZooKeeper Ansible role 
 
-[![Build Status](https://travis-ci.org/idealista/zookeeper_role.png)](https://travis-ci.org/idealista/zookeeper_role)
+[![Build Status](https://app.travis-ci.com/idealista/zookeeper_role.svg)](https://app.travis-ci.com/idealista/zookeeper_role)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-idealista.zookeeper__role-B62682.svg)](https://galaxy.ansible.com/idealista/zookeeper_role)
 [![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/zookeeper.svg)](https://hub.docker.com/r/idealista/zookeeper/)
 
@@ -25,9 +25,17 @@ These instructions will get you a copy of the role for your Ansible Playbook. On
 
 ### Prerequisites
 
-Ansible 2.8.8 version installed.
+#### To execute this role:
 
-Molecule 3.x.x version installed.
+Ansible 2.8.* version installed. Tested with 4.8.0
+
+:warning: Inventory destination should be a Debian environment. Notice that you will need to [install Java](https://github.com/idealista/java_role) in that environment after execute this role.
+
+#### For testing purposes:
+
+* \>= Python 3.9 
+* [Pipenv](https://github.com/pypa/pipenv) 
+* [Docker](https://www.docker.com/) as driver
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver and [Goss](https://github.com/aelsabbahy/goss) as verifier.
 
@@ -37,7 +45,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.zookeeper_role
-  version: 1.11.0
+  version: 2.0.0
   name: zookeeper
 ```
 
@@ -77,19 +85,12 @@ zookeeper_hosts:
 
 ```sh
 $ pipenv sync
-```
-
-For more information read the [pipenv docs](ipenv-fork.readthedocs.io/en/latest/).
-
-### Testing
-
-```sh
-$ pipenv run molecule test 
+$ pipenv run molecule test
 ```
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.8.8-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-4.8.0-green.svg)
 
 ## Versioning
 

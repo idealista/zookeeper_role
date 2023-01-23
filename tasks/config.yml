@@ -7,8 +7,9 @@
     force: "{{ zookeeper_force_myid }}"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
+    mode: 0644
   notify:
-    - Restart zookeeper
+    - restart zookeeper
 
 - name: ZOOKEEPER | Overwrite default config file
   template:
@@ -16,8 +17,9 @@
     dest: "{{ zookeeper_conf_dir }}/zoo.cfg"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
+    mode: 0644
   notify:
-    - Restart zookeeper
+    - restart zookeeper
 
 - name: ZOOKEEPER | Configure zookeeper-env.sh
   template:
@@ -25,8 +27,9 @@
     dest: "{{ zookeeper_conf_dir }}/zookeeper-env.sh"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
+    mode: 0644
   notify:
-    - Restart zookeeper
+    - restart zookeeper
 
 - name: ZOOKEEPER | Update the log4j
   template:
@@ -34,8 +37,9 @@
     dest: "{{ zookeeper_conf_dir }}/log4j.properties"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
+    mode: 0644
   notify:
-    - Restart zookeeper
+    - restart zookeeper
 
 - name: ZOOKEEPER | Create systemd service
   template:
@@ -43,4 +47,4 @@
     dest: /etc/systemd/system/zookeeper.service
     mode: 0644
   notify:
-    - Restart zookeeper
+    - restart zookeeper

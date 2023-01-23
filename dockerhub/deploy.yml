@@ -4,17 +4,26 @@
   connection: local
   gather_facts: false
   tasks:
+    - name: Set variable facts
+      set_fact:
+        docker_base_image: "{{ lookup('env', 'BASE_IMAGE') | default('8u322-stretch-openjdk-headless', true) }}"
+        docker_zookeeper_version: "{{ lookup('env', 'ZOOKEEPER_VERSION') | default('3.8.0', true) }}"
+
     - name: Build Docker Image
       docker_image:
-        path: "."
         name: "idealista/zookeeper"
+        source: build
+        build:
+          path: "."
+          args:
+            BASE_IMAGE: "{{ docker_base_image }}"
 
     - name: Create Docker container
       docker_container:
         name: "zookeeper"
         hostname: "zookeeper"
         image: "idealista/zookeeper"
-        privileged: true
+        container_default_behavior: no_defaults
 
     - name: Add container to in-memory inventory
       add_host:
@@ -25,8 +34,15 @@
 # because was launched using "connection: local" :(
 - name: Execute Zookeeper role in Docker container
   hosts: zookeeper
+  pre_tasks:
+    - name: Set variable facts
+      set_fact:
+        docker_base_image: "{{ lookup('env', 'BASE_IMAGE') | default('8u322-stretch-openjdk-headless', true) }}"
+        docker_zookeeper_version: "{{ lookup('env', 'ZOOKEEPER_VERSION') | default('3.8.0', true) }}"
   roles:
-    - zookeeper_role
+    - role: zookeeper_role
+      vars:
+        zookeeper_version: "{{ docker_zookeeper_version }}"
 
 - name: Deploy to Docker Hub
   hosts: localhost
@@ -34,8 +50,7 @@
   gather_facts: false
   tasks:
     - name: Commit container file changes to new image
-      command: docker commit \
-        zookeeper idealista/zookeeper
+      command: "docker commit zookeeper idealista/zookeeper:8_{{ docker_zookeeper_version }}"
 
     - name: Log into Docker Hub
       docker_login:
@@ -44,7 +59,19 @@
         password: "{{ docker_hub_password }}"
 
     - name: Tag and push to Docker Hub
-      command: docker push idealista/zookeeper:latest
+      docker_image:
+        name: "idealista/zookeeper:8_{{ docker_zookeeper_version }}"
+        repository: "idealista/zookeeper:8_{{ docker_zookeeper_version }}"
+        push: yes
+        source: local
+
+    - name: Tag and push to Docker Hub latest tag
+      docker_image:
+        name: "idealista/zookeeper:8_{{ docker_zookeeper_version }}"
+        repository: "idealista/zookeeper:latest"
+        push: yes
+        source: local
+      when: tag_version is defined and tag_version| bool == true
 
     - name: Remove the container
       docker_container:
