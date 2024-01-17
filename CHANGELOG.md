@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## Added
-- *[PLATFORM-3582]- Add ".gitattributes" file for linguist detection.* @ygomezsaiz
+- *[#80](https://github.com/idealista/zookeeper_role/pull/80) (2024-01-17)- Add ".gitattributes" file for linguist detection.* @ygomezsaiz
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
 ## [2.2.0](https://github.com/idealista/zookeeper_role/tree/2.11.0) (2021-12-17)
