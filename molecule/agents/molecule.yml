@@ -11,7 +11,7 @@ platforms:
   - name: zookeeper1
     groups:
       - zookeeper
-    image: idealista/jdk:8u302-stretch-openjdk-headless
+    image: idealista/jdk:8u322-stretch-openjdk-headless
     privileged: true
     capabilities:
       - SYS_ADMIN
@@ -28,7 +28,7 @@ platforms:
   - name: zookeeper2
     groups:
       - zookeeper
-    image: idealista/jdk:8u302-stretch-openjdk-headless
+    image: idealista/jdk:8u322-stretch-openjdk-headless
     privileged: true
     capabilities:
       - SYS_ADMIN
@@ -45,7 +45,7 @@ platforms:
   - name: zookeeper3
     groups:
       - zookeeper
-    image: idealista/jdk:8u302-stretch-openjdk-headless
+    image: idealista/jdk:8u322-stretch-openjdk-headless
     privileged: true
     capabilities:
       - SYS_ADMIN
@@ -59,7 +59,14 @@ platforms:
     command: '/lib/systemd/systemd'
     stop_signal: 'RTMIN+3'
 
+
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      zookeeper:
+        zookeeper_version: ${ZOOKEEPER_VERSION:-"3.8.0"}
+  env:
+    ANSIBLE_FORCE_COLOR: 1
 verifier:
   name: ansible

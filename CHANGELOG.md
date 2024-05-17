@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 - *[#80](https://github.com/idealista/zookeeper_role/pull/80) (2024-01-17)- Add ".gitattributes" file for linguist detection.* @ygomezsaiz
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
+
+### Added
+- *[#31](https://github.com/idealista/zookeeper_role/issues/31) Added task for check status of zookeeper running* @adrian-arapiles
+- *[#68](https://github.com/idealista/zookeeper_role/issues/68) Be able to overwrite zookeeper_url variable from zip is downloaded* @adrian-arapiles
+- *Added .ansible-lint.yml* @adrian-arapiles
+
+### Changed
+- *Update version of zookeeper to latest 3.8.0* @adrian-arapiles
+- *Upgrade dependencies to latest versions and python to 3.9* @adrian-arapiles
+- *Support of new `clientVersion` new format from 3.5.x version of zookeeper* @adrian-arapiles
+
+### Fixed
+- *Fixed wrong test and lint files* @adrian-arapiles
+- *Fixed travis secures* @xtianae7
+
+
 ## [2.2.0](https://github.com/idealista/zookeeper_role/tree/2.11.0) (2021-12-17)
 ## Added
 - *[#69](https://github.com/idealista/zookeeper_role/issues/69) Support for agent installation.* @jmonterrubio

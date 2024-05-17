@@ -4,62 +4,77 @@ dependency:
 driver:
   name: docker
 lint: |
-  yamllint .
-  ansible-lint .
+  yamllint -f colored .
+  ansible-lint --force-color .
 
 platforms:
   - name: zookeeper1
+    image: ${MOLECULE_DISTRO:-idealista/jdk:8u322-stretch-openjdk-headless}
     groups:
       - zookeeper
-    image: idealista/jdk:8u302-stretch-openjdk-headless
-    privileged: true
+    privileged: false
     capabilities:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    tmpfs:
+      - '/run'
+      - '/run/lock'
+    stop_signal: 'RTMIN+3'
+    command: '/lib/systemd/systemd'
     networks:
       - name: zookeeper-network
         links:
           - zookeeper2:zookeeper2
           - zookeeper3:zookeeper3
-    command: '/lib/systemd/systemd'
-    stop_signal: 'RTMIN+3'
 
   - name: zookeeper2
+    image: ${MOLECULE_DISTRO:-idealista/jdk:8u322-stretch-openjdk-headless}
     groups:
       - zookeeper
-    image: idealista/jdk:8u302-stretch-openjdk-headless
-    privileged: true
+    privileged: false
     capabilities:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    tmpfs:
+      - '/run'
+      - '/run/lock'
+    stop_signal: 'RTMIN+3'
+    command: '/lib/systemd/systemd'
     networks:
       - name: zookeeper-network
         links:
           - zookeeper1:zookeeper1
           - zookeeper3:zookeeper3
-    command: '/lib/systemd/systemd'
-    stop_signal: 'RTMIN+3'
 
   - name: zookeeper3
+    image: ${MOLECULE_DISTRO:-idealista/jdk:8u322-stretch-openjdk-headless}
     groups:
       - zookeeper
-    image: idealista/jdk:8u302-stretch-openjdk-headless
-    privileged: true
+    privileged: false
     capabilities:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    tmpfs:
+      - '/run'
+      - '/run/lock'
+    stop_signal: 'RTMIN+3'
+    command: '/lib/systemd/systemd'
     networks:
       - name: zookeeper-network
         links:
           - zookeeper1:zookeeper1
           - zookeeper2:zookeeper2
-    command: '/lib/systemd/systemd'
-    stop_signal: 'RTMIN+3'
 
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      zookeeper:
+        zookeeper_version: ${ZOOKEEPER_VERSION:-"3.8.0"}
+  env:
+    ANSIBLE_FORCE_COLOR: 1
 verifier:
   name: ansible

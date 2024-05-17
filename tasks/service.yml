@@ -6,3 +6,23 @@
     state: "{{ zookeeper_service_state }}"
     enabled: "{{ zookeeper_service_enabled }}"
     daemon_reload: true
+  register: zookeeper_service_output
+
+- name: ZOOKEEPER | Wait for ZooKeeper port available
+  wait_for:
+    host: localhost
+    port: 2181
+    delay: 5
+    sleep: 2
+    timeout: 300
+
+- name: ZOOKEEPER | Get output of status
+  shell:
+    cmd: "echo status | nc localhost {{ zookeeper_client_port }}"
+  changed_when: false
+  register: zookeeper_status
+
+- name: ZOOKEEPER | Check output of status
+  assert:
+    that: "{{ zookeeper_version in zookeeper_status.stdout }}"
+    success_msg: "Zookeeper {{ zookeeper_version }} started successful"

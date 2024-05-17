@@ -94,13 +94,13 @@
     dest: "{{ zookeeper_install_path }}/{{ item.name }}/{{ item.file }}"
     owner: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
-  notify: Restart zookeeper
+  notify: restart zookeeper
   with_items: '{{ zookeeper_agents_configuration }}'
 
 - name: ZOOKEEPER | agent installation | Check java options
   set_fact:
     zookeeper_agent_java_opts: "{% set zookeeper_agent_java_opts = zookeeper_agent_java_opts|default([]) + [item.1] %}{{ zookeeper_agent_java_opts|list }}"
-  notify: Restart zookeeper
+  notify: restart zookeeper
   with_subelements:
     - "{{ zookeeper_agents_config }}"
     - java_opts

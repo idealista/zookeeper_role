@@ -1,4 +1,5 @@
-FROM idealista/jdk:8u212-stretch-openjdk-headless
+ARG BASE_IMAGE
+FROM idealista/$BASE_IMAGE
 LABEL maintainer="idealista <labs@idealista.com>"
 
 RUN rm -rf /var/lib/apt/lists/* && apt-get update \
