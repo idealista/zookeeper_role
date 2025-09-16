@@ -2,7 +2,12 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/zookeeper_role/tree/develop)
-## [2.2.0](https://github.com/idealista/zookeeper_role/tree/2.11.0) (2021-12-17)
+## [2.2.1](https://github.com/idealista/zookeeper_role/tree/2.2.1) (2025-09-16)
+## Added
+- *[#81](https://github.com/idealista/zookeeper_role/pull/81) (2025-09-16)- Move "zookeeper_required_libs" var to defaults.* @smmoreno
+- *[#80](https://github.com/idealista/zookeeper_role/pull/80) (2024-01-17)- Add ".gitattributes" file for linguist detection.* @ygomezsaiz
+
+## [2.2.0](https://github.com/idealista/zookeeper_role/tree/2.2.0) (2021-12-17)
 ## Added
 - *[#69](https://github.com/idealista/zookeeper_role/issues/69) Support for agent installation.* @jmonterrubio
 ### Fixed
