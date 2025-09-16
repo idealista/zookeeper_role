@@ -1,8 +1,4 @@
 ---
-
-zookeeper_required_libs:
-  - unzip
-  - netcat
 # Define url changes when version is old of 3.5.5
 zookeeper_old_version: "{{ zookeeper_version is version('3.5.5', '<') }}"
 zookeeper_old_package_name: "zookeeper-{{ zookeeper_version }}"
